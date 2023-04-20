@@ -1,0 +1,241 @@
+<!DOCTYPE html> 
+<html lang="en" xmlns:th="http://www.thymeleaf.org"  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="index"> 
+<head> 
+    <title>Product Entry</title> 
+</head> 
+<body> 
+
+ <div layout:fragment="content1"> 
+<div class="content-wrapper"> 
+    <!-- Content Header (Page header) --> 
+    <section class="content-header"> 
+      <div class="container-fluid"> 
+        <div class="row mb-2"> 
+          <div class="col-sm-6"> 
+          </div> 
+          <div class="col-sm-6"> 
+            <ol class="breadcrumb float-sm-right"> 
+              <li class="breadcrumb-item"><a href="#">Home</a></li> 
+              <li class="breadcrumb-item active">Product</li> 
+            </ol> 
+          </div> 
+        </div> 
+      </div><!-- /.container-fluid --> 
+    </section> 
+ 
+    <!-- Main content --> 
+    <section class="content"> 
+      <div class="container-fluid"> 
+        <div class="row"> 
+          <!-- left column --> 
+          <div class="col-md-12"> 
+            <!-- jquery validation --> 
+            <div class="card card-primary"> 
+              <div class="card-header"> 
+              <h3>Product Entry</h3> 
+              </div> 
+              <!-- /.card-header --> 
+              <!-- form start --> 
+              <form id="quickForm"  method= "post" th:action= "@{save}"> 
+                <div class="card-body"> 
+<div class="form-group"> 
+                    <label for="brand">Brand</label> 
+                   
+ <select th:field="${product.brand}" name="brand" class="form-control col-md-3">  
+  <option th:each="brand:${listBrands}"  
+         th:text="${brand.getName()}"  
+         th:value="${brand.getId()}"></option>  
+ </select>  
+                  </div> 
+<div class="form-group"> 
+                    <label for="category">Category</label> 
+                   
+ <select th:field="${product.category}" name="category" class="form-control col-md-3">  
+  <option th:each="category:${listCategories}"  
+         th:text="${category.getName()}"  
+         th:value="${category.getId()}"></option>  
+ </select>  
+                  </div> 
+<div class="form-group"> 
+                    <label for="name">Name</label> 
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Enter Name "th:field="${product.name}"> 
+                  </div> 
+<div class="form-group"> 
+                    <label for="image">Image</label> 
+                    <input type="text" name="image" class="form-control" id="image" placeholder="Enter Image "th:field="${product.image}"> 
+                  </div> 
+<div class="form-group"> 
+                    <label for="mrp">Mrp</label> 
+                    <input type="text" name="mrp" class="form-control" id="mrp" placeholder="Enter Mrp "th:field="${product.mrp}"> 
+                  </div> 
+<div class="form-group"> 
+                    <label for="salesPrice">Sales Price</label> 
+                    <input type="text" name="salesPrice" class="form-control" id="salesPrice" placeholder="Enter Sales Price "th:field="${product.salesPrice}"> 
+                  </div> 
+<div class="form-group"> 
+                    <label for="groseWeight">Grose Weight</label> 
+                    <input type="text" name="groseWeight" class="form-control" id="groseWeight" placeholder="Enter Grose Weight "th:field="${product.groseWeight}"> 
+                  </div> 
+<div class="form-group"> 
+                    <label for="netWeight">Net Weight</label> 
+                    <input type="text" name="netWeight" class="form-control" id="netWeight" placeholder="Enter Net Weight "th:field="${product.netWeight}"> 
+                  </div> 
+<div class="form-group"> 
+                    <label for="isFixedLabour">Is Fixed Labour</label> 
+                    <input type="text" name="isFixedLabour" class="form-control" id="isFixedLabour" placeholder="Enter Is Fixed Labour "th:field="${product.isFixedLabour}"> 
+                  </div> 
+<div class="form-group"> 
+                    <label for="labour">Labour</label> 
+                    <input type="text" name="labour" class="form-control" id="labour" placeholder="Enter Labour "th:field="${product.labour}"> 
+                  </div> 
+<div class="form-group"> 
+                    <label for="otherCharges">Other Charges</label> 
+                    <input type="text" name="otherCharges" class="form-control" id="otherCharges" placeholder="Enter Other Charges "th:field="${product.otherCharges}"> 
+                  </div> 
+<div class="form-group"> 
+                    <label for="productDescription">Product Description</label> 
+                    <input type="text" name="productDescription" class="form-control" id="productDescription" placeholder="Enter Product Description "th:field="${product.productDescription}"> 
+                  </div> 
+<div class="form-group"> 
+                    <label for="status">Status</label> 
+                    <input type="text" name="status" class="form-control" id="status" placeholder="Enter Status "th:field="${product.status}"> 
+                  </div> 
+                   
+                   
+                </div> 
+                <!-- /.card-body --> 
+                <div class="card-footer"> 
+                  <button type="submit" class="btn btn-primary">Submit</button> 
+                </div> 
+              </form> 
+            </div> 
+            <!-- /.card --> 
+            </div> 
+          <!--/.col (left) --> 
+          <!-- right column --> 
+          <div class="col-md-6"> 
+ 
+          </div> 
+          <!--/.col (right) --> 
+        </div> 
+        <!-- /.row --> 
+      </div><!-- /.container-fluid --> 
+    </section> 
+    <!-- /.content --> 
+  </div> 
+  </div> 
+<section layout:fragment= "script1">
+<script th:src="@{/admin/plugins/jquery-validation/jquery.validate.min.js}"></script>
+  <script th:src="@{/admin/plugins/jquery-validation/additional-methods.min.js}"></script> 
+  <script> 
+    $(function () { 
+      $.validator.setDefaults({ 
+        submitHandler: function () { 
+          alert("Form successful submitted!"); 
+        } 
+      }); 
+      $('#quickForm1') 
+        .validate(  { 
+            rules: { 
+              brand: { 
+                required: true, 
+              }, 
+              category: { 
+                required: true, 
+              }, 
+              name: { 
+                required: true, 
+              }, 
+              image: { 
+                required: true, 
+              }, 
+              mrp: { 
+                required: true, 
+              }, 
+              salesPrice: { 
+                required: true, 
+              }, 
+              groseWeight: { 
+                required: true, 
+              }, 
+              netWeight: { 
+                required: true, 
+              }, 
+              isFixedLabour: { 
+                required: true, 
+              }, 
+              labour: { 
+                required: true, 
+              }, 
+              otherCharges: { 
+                required: true, 
+              }, 
+              productDescription: { 
+                required: true, 
+              }, 
+              status: { 
+                required: true, 
+              }, 
+            }, 
+            messages: { 
+              brand: { 
+                required: "Please enter a brand", 
+              }, 
+              category: { 
+                required: "Please enter a category", 
+              }, 
+              name: { 
+                required: "Please enter a name", 
+              }, 
+              image: { 
+                required: "Please enter a image", 
+              }, 
+              mrp: { 
+                required: "Please enter a mrp", 
+              }, 
+              salesPrice: { 
+                required: "Please enter a sales price", 
+              }, 
+              groseWeight: { 
+                required: "Please enter a grose weight", 
+              }, 
+              netWeight: { 
+                required: "Please enter a net weight", 
+              }, 
+              isFixedLabour: { 
+                required: "Please enter a is fixed labour", 
+              }, 
+              labour: { 
+                required: "Please enter a labour", 
+              }, 
+              otherCharges: { 
+                required: "Please enter a other charges", 
+              }, 
+              productDescription: { 
+                required: "Please enter a product description", 
+              }, 
+              status: { 
+                required: "Please enter a status", 
+              }, 
+			}, 
+            errorElement: 'span', 
+            errorPlacement: function (error, element) { 
+              error.addClass('invalid-feedback'); 
+              element.closest('.form-group') 
+                .append(error); 
+            }, 
+            highlight: function (element, errorClass, 
+              validClass) { 
+              $(element).addClass('is-invalid'); 
+            }, 
+            unhighlight: function (element, errorClass, 
+              validClass) { 
+              $(element).removeClass('is-invalid'); 
+            } 
+          }); 
+    }); 
+  </script> 
+</section> 
+
+ </body>
+ <html>

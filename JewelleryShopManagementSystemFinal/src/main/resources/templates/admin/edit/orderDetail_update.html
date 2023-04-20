@@ -1,0 +1,107 @@
+<!DOCTYPE html> 
+<html lang="en" xmlns:th="http://www.thymeleaf.org"  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="index"> 
+<head> 
+    <title>OrderDetail Edit</title> 
+</head> 
+<body> 
+
+ <div layout:fragment="content1"> 
+<div class="content-wrapper"> 
+    <!-- Content Header (Page header) --> 
+    <section class="content-header"> 
+      <div class="container-fluid"> 
+        <div class="row mb-2"> 
+          <div class="col-sm-6"> 
+          </div> 
+          <div class="col-sm-6"> 
+            <ol class="breadcrumb float-sm-right"> 
+              <li class="breadcrumb-item"><a href="#">Home</a></li> 
+              <li class="breadcrumb-item active">OrderDetail</li> 
+            </ol> 
+          </div> 
+        </div> 
+      </div><!-- /.container-fluid --> 
+    </section> 
+ 
+    <!-- Main content --> 
+    <section class="content"> 
+      <div class="container-fluid"> 
+        <div class="row"> 
+          <!-- left column --> 
+          <div class="col-md-12"> 
+            <!-- jquery validation --> 
+            <div class="card card-primary"> 
+              <div class="card-header"> 
+              <h3>OrderDetail Edit</h3> 
+              </div> 
+              <!-- /.card-header --> 
+              <!-- form start --> 
+              <form id="quickForm"  method= "post" th:action= "@{/orderDetail/save}" th:object="${orderDetail}"> 
+                <div class="card-body"> 
+<div class="form-group"> 
+                    <label for="id">Id</label> 
+                    <input type="text" name="id" class="form-control" id="id" placeholder="Enter Id " th:value="${orderDetail.getId()}" readonly="readonly"> 
+                  </div> 
+<div class="form-group"> 
+                    <label for="product">Product</label> 
+                   
+ <select th:field="${orderDetail.product}" name="product" class="form-control col-md-3">  
+  <option th:each="product:${listProducts}"  
+         th:text="${product.getName()}"  
+         th:value="${product.getId()}"></option>  
+ </select>  
+                  </div> 
+<div class="form-group"> 
+                    <label for="order">Order</label> 
+                   
+ <select th:field="${orderDetail.order}" name="order" class="form-control col-md-3">  
+  <option th:each="order:${listOrders}"  
+         th:text="${order.getAddress()}"  
+         th:value="${order.getId()}"></option>  
+ </select>  
+                  </div> 
+<div class="form-group"> 
+                    <label for="mrp">Mrp</label> 
+                    <input type="text" name="mrp" class="form-control" id="mrp" placeholder="Enter Mrp " th:value="${orderDetail.getMrp()}"> 
+                  </div> 
+<div class="form-group"> 
+                    <label for="price">Price</label> 
+                    <input type="text" name="price" class="form-control" id="price" placeholder="Enter Price " th:value="${orderDetail.getPrice()}"> 
+                  </div> 
+<div class="form-group"> 
+                    <label for="qty">Qty</label> 
+                    <input type="text" name="qty" class="form-control" id="qty" placeholder="Enter Qty " th:value="${orderDetail.getQty()}"> 
+                  </div> 
+<div class="form-group"> 
+                    <label for="amount">Amount</label> 
+                    <input type="text" name="amount" class="form-control" id="amount" placeholder="Enter Amount " th:value="${orderDetail.getAmount()}"> 
+                  </div> 
+                   
+                   
+                </div> 
+                <!-- /.card-body --> 
+                <div class="card-footer"> 
+                  <button type="submit" class="btn btn-primary">Update</button> 
+                </div> 
+              </form> 
+            </div> 
+            <!-- /.card --> 
+            </div> 
+          <!--/.col (left) --> 
+          <!-- right column --> 
+          <div class="col-md-6"> 
+ 
+          </div> 
+          <!--/.col (right) --> 
+        </div> 
+        <!-- /.row --> 
+      </div><!-- /.container-fluid --> 
+    </section> 
+    <!-- /.content --> 
+  </div> 
+  </div> 
+<section layout:fragment= "script1">
+</section>
+
+ </body>
+ <html>

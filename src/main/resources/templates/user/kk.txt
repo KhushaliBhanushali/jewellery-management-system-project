@@ -1,0 +1,14 @@
+404.html
+about-us.html
+cart.html
+checkout.html
+compare.html 
+contact.html
+index-2.html 
+index-3.html 
+index.html
+login-register.html
+my-account.html
+shop-left-sidebar.html 
+single-product.html
+wishlist.html

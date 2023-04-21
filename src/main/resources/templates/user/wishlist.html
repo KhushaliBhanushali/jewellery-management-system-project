@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="user/user-template">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div layout:fragment="content1">
+        <!-- Begin Jewellery's Breadcrumb Area -->
+        <div class="breadcrumb-area">
+            <div class="container">
+                <div class="breadcrumb-content">
+                    <h2>Other</h2>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li class="active">Wishlist</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Jewellery's Breadcrumb Area End Here -->
+        <!--Begin Jewellery's Wishlist Area -->
+        <div class="jewellery-wishlist_area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <form action="javascript:void(0)">
+                            <div class="table-content table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th class="jewellery-product_remove">remove</th>
+                                            <th class="jewellery-product-thumbnail">images</th>
+                                            <th class="cart-product-name">Product</th>
+                                            <th class="jewellery-product-price">Unit Price</th>
+                                            <th class="jewellery-product-stock-status">Stock Status</th>
+                                            <th class="jewellery-cart_btn">add to cart</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="jewellery-product_remove"><a href="javascript:void(0)"><i
+                                                        class="fa fa-trash" title="Remove"></i></a></td>
+                                            <td class="jewellery-product-thumbnail"><a href="javascript:void(0)"><img
+                                                        th:src="@{assets/images/product/small-size/2-1.jpg}"
+                                                        alt="Jewellery's Wishlist Thumbnail"></a>
+                                            </td>
+                                            <td class="jewellery-product-name"><a href="javascript:void(0)">Juma rema
+                                                    pola</a></td>
+                                            <td class="jewellery-product-price"><span class="amount">₹1023.39</span>
+                                            </td>
+                                            <td class="jewellery-product-stock-status"><span class="in-stock">in
+                                                    stock</span></td>
+                                            <td class="jewellery-cart_btn"><a href="javascript:void(0)">add to cart</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="jewellery-product_remove"><a href="javascript:void(0)"><i
+                                                        class="fa fa-trash" title="Remove"></i></a></td>
+                                            <td class="jewellery-product-thumbnail"><a href="javascript:void(0)"><img
+                                                        th:src="@{assets/images/product/small-size/2-2.jpg}"
+                                                        alt="Jewellery's Wishlist Thumbnail"></a>
+                                            </td>
+                                            <td class="jewellery-product-name"><a href="javascript:void(0)">Suretin
+                                                    mipen
+                                                    ruma</a></td>
+                                            <td class="jewellery-product-price"><span class="amount">₹1030.50</span>
+                                            </td>
+                                            <td class="jewellery-product-stock-status"><span class="in-stock">in
+                                                    stock</span></td>
+                                            <td class="jewellery-cart_btn"><a href="javascript:void(0)">add to cart</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="jewellery-product_remove"><a href="javascript:void(0)"><i
+                                                        class="fa fa-trash" title="Remove"></i></a></td>
+                                            <td class="jewellery-product-thumbnail"><a href="javascript:void(0)"><img
+                                                        th:src="@{assets/images/product/small-size/2-3.jpg}"
+                                                        alt="Jewellery's Wishlist Thumbnail"></a>
+                                            </td>
+                                            <td class="jewellery-product-name"><a href="javascript:void(0)">Bag Goodscol
+                                                    model</a></td>
+                                            <td class="jewellery-product-price"><span class="amount">₹1040.19</span>
+                                            </td>
+                                            <td class="jewellery-product-stock-status"><span class="out-stock">out
+                                                    stock</span></td>
+                                            <td class="jewellery-cart_btn"><a href="javascript:void(0)">add to cart</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Jewellery's Wishlist Area End Here -->
+    </div>
+</body>
+
+</html>

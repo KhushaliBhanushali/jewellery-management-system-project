@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="admin/index">
+
+<head>
+  <title>CompanyDetail Entry</title>
+</head>
+
+<body>
+
+  <div layout:fragment="content1">
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+            </div>
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active">CompanyDetail</li>
+              </ol>
+            </div>
+          </div>
+        </div><!-- /.container-fluid -->
+      </section>
+
+      <!-- Main content -->
+      <section class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <!-- left column -->
+            <div class="col-md-12">
+              <!-- jquery validation -->
+              <div class="card card-primary">
+                <div class="card-header">
+                  <h3>CompanyDetail Entry</h3>
+                </div>
+                <!-- /.card-header -->
+                <!-- form start -->
+                <form id="quickForm" method="post" th:action="@{save}" enctype="multipart/form-data">
+                  <div class="card-body">
+                    <div class="form-group">
+                      <label for="name">Name</label>
+                      <input type="text" name="name" class="form-control" id="name" placeholder="Enter Name "
+                        th:field="${companyDetail.name}">
+                    </div>
+                    <div class="form-group">
+                      <label for="file">Logo</label>
+                      <input type="file" accept="image/png, image/jpeg" name="file" class="form-control"  placeholder="Enter Logo "
+                        >
+                    </div>
+                    <div class="form-group">
+                      <label for="helplineNo">Helpline No</label>
+                      <input type="text" name="helplineNo" class="form-control" id="helplineNo"
+                        placeholder="Enter Helpline No " th:field="${companyDetail.helplineNo}">
+                    </div>
+                    <div class="form-group">
+                      <label for="address">Address</label>
+                      <input type="text" name="address" class="form-control" id="address" placeholder="Enter Address "
+                        th:field="${companyDetail.address}">
+                    </div>
+                    <div class="form-group">
+                      <label for="phone">Phone</label>
+                      <input type="text" name="phone" class="form-control" id="phone" placeholder="Enter Phone "
+                        th:field="${companyDetail.phone}">
+                    </div>
+                    <div class="form-group">
+                      <label for="email">Email</label>
+                      <input type="text" name="email" class="form-control" id="email" placeholder="Enter Email "
+                        th:field="${companyDetail.email}">
+                    </div>
+                    <div class="form-group">
+                      <label for="copyRight">Copy Right</label>
+                      <input type="text" name="copyRight" class="form-control" id="copyRight"
+                        placeholder="Enter Copy Right " th:field="${companyDetail.copyRight}">
+                    </div>
+                    <div class="form-group">
+                      <label for="homePage">Home Page</label>
+                      <input type="text" name="homePage" class="form-control" id="homePage"
+                        placeholder="Enter Home Page " th:field="${companyDetail.homePage}">
+                    </div>
+
+
+                  </div>
+                  <!-- /.card-body -->
+                  <div class="card-footer">
+                    <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+                    <a th:href="@{/companyDetail/index}"><button type="button"
+                        class="btn btn-dark btn-sm">BACK</button></a>
+                  </div>
+                </form>
+              </div>
+              <!-- /.card -->
+            </div>
+            <!--/.col (left) -->
+            <!-- right column -->
+            <div class="col-md-6">
+
+            </div>
+            <!--/.col (right) -->
+          </div>
+          <!-- /.row -->
+        </div><!-- /.container-fluid -->
+      </section>
+      <!-- /.content -->
+    </div>
+  </div>
+  <section layout:fragment="script1">
+    <script th:src="@{/admin/plugins/jquery-validation/jquery.validate.min.js}"></script>
+    <script th:src="@{/admin/plugins/jquery-validation/additional-methods.min.js}"></script>
+    <script>
+      $(function () {
+        $.validator.setDefaults({
+          submitHandler: function () {
+            alert("Form successful submitted!");
+          }
+        });
+        $('#quickForm1')
+          .validate({
+            rules: {
+              name: {
+                required: true,
+              },
+              logo: {
+                required: true,
+              },
+              helplineNo: {
+                required: true,
+              },
+              address: {
+                required: true,
+              },
+              phone: {
+                required: true,
+              },
+              email: {
+                required: true,
+              },
+              copyRight: {
+                required: true,
+              },
+              homePage: {
+                required: true,
+              },
+            },
+            messages: {
+              name: {
+                required: "Please enter a name",
+              },
+              logo: {
+                required: "Please enter a logo",
+              },
+              helplineNo: {
+                required: "Please enter a helpline no",
+              },
+              address: {
+                required: "Please enter a address",
+              },
+              phone: {
+                required: "Please enter a phone",
+              },
+              email: {
+                required: "Please enter a email",
+              },
+              copyRight: {
+                required: "Please enter a copy right",
+              },
+              homePage: {
+                required: "Please enter a home page",
+              },
+            },
+            errorElement: 'span',
+            errorPlacement: function (error, element) {
+              error.addClass('invalid-feedback');
+              element.closest('.form-group')
+                .append(error);
+            },
+            highlight: function (element, errorClass,
+              validClass) {
+              $(element).addClass('is-invalid');
+            },
+            unhighlight: function (element, errorClass,
+              validClass) {
+              $(element).removeClass('is-invalid');
+            }
+          });
+      }); 
+    </script>
+  </section>
+
+</body>
+<html>

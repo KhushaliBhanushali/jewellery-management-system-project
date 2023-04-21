@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="admin/index">
+
+<head>
+  <title>CompanyDetail Edit</title>
+</head>
+
+<body>
+
+  <div layout:fragment="content1">
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+            </div>
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active">CompanyDetail</li>
+              </ol>
+            </div>
+          </div>
+        </div><!-- /.container-fluid -->
+      </section>
+
+      <!-- Main content -->
+      <section class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <!-- left column -->
+            <div class="col-md-12">
+              <!-- jquery validation -->
+              <div class="card card-primary">
+                <div class="card-header">
+                  <h3>CompanyDetail Update</h3>
+                </div>
+                <!-- /.card-header -->
+                <!-- form start -->
+                <form id="quickForm" enctype="multipart/form-data" method="post" th:action="@{/companyDetail/save}"
+                  th:object="${companyDetail}">
+                  <div class="card-body">
+                    <div class="form-group">
+
+                      <input type="hidden" name="id" class="form-control" id="id" placeholder="Enter Id "
+                        th:value="${companyDetail.getId()}">
+                      <input type="hidden" name="logo" class="form-control" id="logo"
+                        th:value="${companyDetail.getLogo()}">
+
+                    </div>
+                    <div class="form-group">
+                      <label for="name">Name</label>
+                      <input type="text" name="name" class="form-control" id="name" placeholder="Enter Name "
+                        th:value="${companyDetail.getName()}">
+                    </div>
+                    <div class="form-group">
+                      <img th:src="@{${companyDetail.getImagePath()}}" style="width:150px" />
+                    </div>
+                    <div class="form-group">
+                      <label for="logo">Logo</label>
+                      <input type="file" accept="image/png, image/jpeg" name="file" class="form-control" id="file"
+                        placeholder="Enter Logo " th:value="${companyDetail.getLogo()}">
+                    </div>
+
+
+                    <div class="form-group">
+                      <label for="helplineNo">Helpline No</label>
+                      <input type="text" name="helplineNo" class="form-control" id="helplineNo"
+                        placeholder="Enter Helpline No " th:value="${companyDetail.getHelplineNo()}">
+                    </div>
+                    <div class="form-group">
+                      <label for="address">Address</label>
+                      <textarea rows="3" name="address" class="form-control" id="address" placeholder="Enter Address "
+                        th:text="${companyDetail.getAddress()}"></textarea>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label for="phone">Phone</label>
+                      <input type="text" name="phone" class="form-control" id="phone" placeholder="Enter Phone "
+                        th:value="${companyDetail.getPhone()}">
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label for="email">Email</label>
+                      <input type="text" name="email" class="form-control" id="email" placeholder="Enter Email "
+                        th:value="${companyDetail.getEmail()}">
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label for="copyRight">Copy Right</label>
+                      <input type="text" name="copyRight" class="form-control" id="copyRight"
+                        placeholder="Enter Copy Right " th:value="${companyDetail.getCopyRight()}">
+                    </div>
+                    <div class="form-group">
+                      <label for="homePage">Home Page</label>
+                      <select name="homePage" class="form-control col-md-3">
+                        <option value="home-page-1">Home Page - 1</option>
+                        <option value="home-page-2">Home Page - 2</option>
+                        <option value="home-page-3">Home Page - 3</option>
+
+                      </select>
+                    </div>
+
+
+
+                  </div>
+                  <!-- /.card-body -->
+                  <div class="card-footer">
+                    <button type="submit" class="btn btn-primary btn-sm">UPDATE</button>
+
+                  </div>
+                </form>
+              </div>
+              <!-- /.card -->
+            </div>
+            <!--/.col (left) -->
+            <!-- right column -->
+            <div class="col-md-6">
+
+            </div>
+            <!--/.col (right) -->
+          </div>
+          <!-- /.row -->
+        </div><!-- /.container-fluid -->
+      </section>
+      <!-- /.content -->
+    </div>
+  </div>
+  <section layout:fragment="script1">
+  </section>
+
+</body>
+<html>

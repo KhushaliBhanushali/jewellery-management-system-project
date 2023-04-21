@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="admin/index">
+
+<head>
+  <title>OrderDetail Entry</title>
+</head>
+
+<body>
+
+  <div layout:fragment="content1">
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+            </div>
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active">OrderDetail</li>
+              </ol>
+            </div>
+          </div>
+        </div><!-- /.container-fluid -->
+      </section>
+
+      <!-- Main content -->
+      <section class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <!-- left column -->
+            <div class="col-md-12">
+              <!-- jquery validation -->
+              <div class="card card-primary">
+                <div class="card-header">
+                  <h3>OrderDetail Entry</h3>
+                </div>
+                <!-- /.card-header -->
+                <!-- form start -->
+                <form id="quickForm" method="post" th:action="@{save}" enctype="multipart/form-data">
+                  <div class="card-body">
+                    <div class="form-group">
+                      <label for="product">Product</label>
+
+                      <select th:field="${orderDetail.product}" name="product" class="form-control col-md-3">
+                        <option th:each="product:${listProducts}" th:text="${product.getName()}"
+                          th:value="${product.getId()}"></option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="order">Order</label>
+
+                      <select th:field="${orderDetail.order}" name="order" class="form-control col-md-3">
+                        <option th:each="order:${listOrders}" th:text="${order.getAddress()}"
+                          th:value="${order.getId()}"></option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="mrp">Mrp</label>
+                      <input type="text" name="mrp" class="form-control" id="mrp" placeholder="Enter Mrp "
+                        th:field="${orderDetail.mrp}">
+                    </div>
+                    <div class="form-group">
+                      <label for="price">Price</label>
+                      <input type="text" name="price" class="form-control" id="price" placeholder="Enter Price "
+                        th:field="${orderDetail.price}">
+                    </div>
+                    <div class="form-group">
+                      <label for="qty">Qty</label>
+                      <input type="text" name="qty" class="form-control" id="qty" placeholder="Enter Qty "
+                        th:field="${orderDetail.qty}">
+                    </div>
+                    <div class="form-group">
+                      <label for="amount">Amount</label>
+                      <input type="text" name="amount" class="form-control" id="amount" placeholder="Enter Amount "
+                        th:field="${orderDetail.amount}">
+                    </div>
+
+
+                  </div>
+                  <!-- /.card-body -->
+                  <div class="card-footer">
+                    <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+                    <a th:href="@{/orderDetail/index}"><button type="button"
+                        class="btn btn-dark btn-sm">BACK</button></a>
+                  </div>
+                </form>
+              </div>
+              <!-- /.card -->
+            </div>
+            <!--/.col (left) -->
+            <!-- right column -->
+            <div class="col-md-6">
+
+            </div>
+            <!--/.col (right) -->
+          </div>
+          <!-- /.row -->
+        </div><!-- /.container-fluid -->
+      </section>
+      <!-- /.content -->
+    </div>
+  </div>
+  <section layout:fragment="script1">
+    <script th:src="@{/admin/plugins/jquery-validation/jquery.validate.min.js}"></script>
+    <script th:src="@{/admin/plugins/jquery-validation/additional-methods.min.js}"></script>
+    <script>
+      $(function () {
+        $.validator.setDefaults({
+          submitHandler: function () {
+            alert("Form successful submitted!");
+          }
+        });
+        $('#quickForm1')
+          .validate({
+            rules: {
+              product: {
+                required: true,
+              },
+              order: {
+                required: true,
+              },
+              mrp: {
+                required: true,
+              },
+              price: {
+                required: true,
+              },
+              qty: {
+                required: true,
+              },
+              amount: {
+                required: true,
+              },
+            },
+            messages: {
+              product: {
+                required: "Please enter a product",
+              },
+              order: {
+                required: "Please enter a order",
+              },
+              mrp: {
+                required: "Please enter a mrp",
+              },
+              price: {
+                required: "Please enter a price",
+              },
+              qty: {
+                required: "Please enter a qty",
+              },
+              amount: {
+                required: "Please enter a amount",
+              },
+            },
+            errorElement: 'span',
+            errorPlacement: function (error, element) {
+              error.addClass('invalid-feedback');
+              element.closest('.form-group')
+                .append(error);
+            },
+            highlight: function (element, errorClass,
+              validClass) {
+              $(element).addClass('is-invalid');
+            },
+            unhighlight: function (element, errorClass,
+              validClass) {
+              $(element).removeClass('is-invalid');
+            }
+          });
+      }); 
+    </script>
+  </section>
+
+</body>
+<html>

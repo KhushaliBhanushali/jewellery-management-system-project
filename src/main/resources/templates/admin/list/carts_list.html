@@ -1,0 +1,87 @@
+<!DOCTYPE html> 
+<html lang="en" xmlns:th="http://www.thymeleaf.org"  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="admin/index"> 
+<head> 
+    <title>Cart List</title> 
+</head> 
+<body> 
+
+ <div layout:fragment="content1"> 
+ <div class="content-wrapper"> 
+      <!-- Content Header (Page header) --> 
+      <section class="content-header"> 
+        <div class="container-fluid"> 
+          <div class="row mb-2"> 
+            <div class="col-sm-6"> 
+           
+ <h1>Cart</h1> 
+          </div> 
+          <div class="col-sm-6"> 
+            <ol class="breadcrumb float-sm-right"> 
+              <li class="breadcrumb-item"><a href="#">Home</a></li> 
+              <li class="breadcrumb-item active">Cart</li> 
+            </ol> 
+            </div> 
+          </div> 
+        </div><!-- /.container-fluid --> 
+      </section> 
+ 
+      <!-- Main content --> 
+      <section class="content"> 
+        <div class="container-fluid"> 
+          <div class="row"> 
+            <div class="col-12"> 
+  
+ 
+              <div class="card"> 
+                <div class="card-header">
+<a th:href="@{/cart/create}" class="btn btn-primary btn-sm">ADD NEW CART</a>  
+                </div> 
+                <!-- /.card-header --> 
+                <div class="card-body"> 
+                  <table id="example1" class="table table-bordered table-striped"> 
+                    <thead> 
+                      <tr>
+<th>Id</th>
+<th>User</th>
+<th>Product</th>
+<th>Qty</th>
+<th style = "width:150px"> Actions </th> 
+                      </tr> 
+                    </thead> 
+                    <tbody> 
+                      <tr th:each="cart : ${listCarts}">
+<td th:text= "${cart.id}"> </td>
+<td th:text= "${cart.user.firstName}"> </td>
+<td th:text= "${cart.product.name}"> </td>
+<td th:text= "${cart.qty}"> </td>
+<td> <a th:href="@{/cart/update/{id}(id=${cart.id})}" class="btn btn-success btn-sm">UPDATE</a> 
+						<a th:href="@{/cart/delete/{id}(id=${cart.id})}" class="btn btn-danger btn-sm">DELETE</a> 
+					</td>  
+                      </tr> 
+                    </tbody> 
+                    <tfoot> 
+                      <tr>
+<th>Id</th>
+<th>User</th>
+<th>Product</th>
+<th>Qty</th>
+<th> Actions </th> 
+                      </tr> 
+                    </tfoot> 
+                  </table> 
+                </div> 
+                <!-- /.card-body --> 
+              </div> 
+              <!-- /.card --> 
+            </div> 
+            <!-- /.col --> 
+          </div> 
+          <!-- /.row --> 
+        </div> 
+        <!-- /.container-fluid --> 
+      </section> 
+      <!-- /.content --> 
+    </div> 
+    </div>
+ </body>
+ <html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="admin/index">
+
+<head>
+  <title>ContactUs List</title>
+</head>
+
+<body>
+
+  <div layout:fragment="content1">
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+
+              <h1>ContactUs</h1>
+            </div>
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active">ContactUs</li>
+              </ol>
+            </div>
+          </div>
+        </div><!-- /.container-fluid -->
+      </section>
+
+      <!-- Main content -->
+      <section class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-12">
+
+
+              <div class="card">
+                <div class="card-header">
+                  <a th:href="@{/contactUs/create}" class="btn btn-primary btn-sm">ADD NEW CONTACTUS</a>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                  <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                      <tr>
+                        <th>Id</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Message</th>
+                        <th>Enquiry Date</th>
+                        <th>Is Read</th>
+                        <th style="width:150px"> Actions </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr th:each="contactUs : ${listContactUses}">
+                        <td th:text="${contactUs.id}"> </td>
+                        <td th:text="${contactUs.firstName}"> </td>
+                        <td th:text="${contactUs.lastName}"> </td>
+                        <td th:text="${contactUs.phone}"> </td>
+                        <td th:text="${contactUs.email}"> </td>
+                        <td th:text="${contactUs.message}"> </td>
+                        <td th:text="${contactUs.enquiryDate}"> </td>
+                        <td th:text="${contactUs.isRead==1} ? 'YES' : 'NO'"> </td>
+                        <td> <a th:href="@{/contactUs/update/{id}(id=${contactUs.id})}"
+                            class="btn btn-success btn-sm">UPDATE</a>
+                          <a th:href="@{/contactUs/delete/{id}(id=${contactUs.id})}"
+                            class="btn btn-danger btn-sm">DELETE</a>
+                        </td>
+                      </tr>
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <th>Id</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Message</th>
+                        <th>Enquiry Date</th>
+                        <th>Is Read</th>
+                        <th> Actions </th>
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
+            <!-- /.col -->
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+      </section>
+      <!-- /.content -->
+    </div>
+  </div>
+</body>
+<html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="admin/index">
+
+<head>
+  <title>Slider List</title>
+</head>
+
+<body>
+
+  <div layout:fragment="content1">
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+
+              <h1>Slider</h1>
+            </div>
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active">Slider</li>
+              </ol>
+            </div>
+          </div>
+        </div><!-- /.container-fluid -->
+      </section>
+
+      <!-- Main content -->
+      <section class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-12">
+
+
+              <div class="card">
+                <div class="card-header">
+                  <a th:href="@{/slider/create}" class="btn btn-primary btn-sm">ADD NEW SLIDER</a>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                  <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                      <tr>
+                        <th>Id</th>
+                        <th>Image</th>
+                        <th>Text1</th>
+                        <th>Text2</th>
+                        <th>Text3</th>
+                        <th>Text4</th>
+                        <th>Btn Text</th>
+                        <th>Btn Link</th>
+                        <th>Status</th>
+                        <th style="width:150px"> Actions </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr th:each="slider : ${listSliders}">
+                        <td th:text="${slider.id}"> </td>
+                        <td><img th:src="@{${slider.imagePath}}" style="width:70px" /></td>
+                        <td th:text="${slider.text1}"> </td>
+                        <td th:text="${slider.text2}"> </td>
+                        <td th:text="${slider.text3}"> </td>
+                        <td th:text="${slider.text4}"> </td>
+                        <td th:text="${slider.btnText}"> </td>
+                        <td th:text="${slider.btnLink}"> </td>
+                        <td th:text="${slider.status==1} ? 'ACTIVE' : 'NOT ACTIVE'"> </td>
+                        <td> <a th:href="@{/slider/update/{id}(id=${slider.id})}"
+                            class="btn btn-success btn-sm">UPDATE</a>
+                          <a th:href="@{/slider/delete/{id}(id=${slider.id})}" class="btn btn-danger btn-sm">DELETE</a>
+                        </td>
+                      </tr>
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <th>Id</th>
+                        <th>Image</th>
+                        <th>Text1</th>
+                        <th>Text2</th>
+                        <th>Text3</th>
+                        <th>Text4</th>
+                        <th>Btn Text</th>
+                        <th>Btn Link</th>
+                        <th>Status</th>
+                        <th> Actions </th>
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
+            <!-- /.col -->
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+      </section>
+      <!-- /.content -->
+    </div>
+  </div>
+</body>
+<html>

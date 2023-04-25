@@ -39,7 +39,7 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form id="quickForm" enctype="multipart/form-data" method="post" th:action="@{/brand/save}"
+                <form id="quickForm" enctype="multipart/form-data" method="post" th:action="@{/admin/brand/save}"
                   th:object="${brand}">
                   <div class="card-body">
                     <div class="form-group">
@@ -54,8 +54,12 @@
                     </div>
                     <div class="form-group">
                       <label for="file">Logo</label>
-                      <input type="file" name="file" class="form-control"  placeholder="Enter Logo "
-                        >
+                      <input type="file" accept="image/png, image/jpeg" name="file" class="form-control"  placeholder="Enter Logo ">
+                      
+                      <input type="hidden" th:value="${brand.getLogo()}">
+                        <img th:src="${brand.imagePath}" style="width:70px">
+                        
+                        
                     </div>
                     <div class="form-group">
                       <label for="status">Status</label>
@@ -75,7 +79,7 @@
                   <!-- /.card-body -->
                   <div class="card-footer">
                     <button type="submit" class="btn btn-primary btn-sm">UPDATE</button>
-                    <a th:href="@{/brand/index}"><button type="button" class="btn btn-dark btn-sm">BACK</button></a>
+                    <a th:href="@{/admin/brand/index}"><button type="button" class="btn btn-dark btn-sm">BACK</button></a>
                   </div>
                 </form>
               </div>

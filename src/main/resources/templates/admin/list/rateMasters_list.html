@@ -34,7 +34,7 @@
  
               <div class="card"> 
                 <div class="card-header">
-<a th:href="@{/rateMaster/create}" class="btn btn-primary btn-sm">ADD NEW RATEMASTER</a>  
+<a th:href="@{/admin/rateMaster/create}" class="btn btn-primary btn-sm">ADD NEW RATEMASTER</a>  
                 </div> 
                 <!-- /.card-header --> 
                 <div class="card-body"> 
@@ -56,8 +56,8 @@
 <td th:text= "${rateMaster.rate}"> </td>
 <td th:text= "${rateMaster.gram}"> </td>
 <td th:text="${rateMaster.status==1} ? 'ACTIVE' : 'NOT ACTIVE'" > </td>
-<td> <a th:href="@{/rateMaster/update/{id}(id=${rateMaster.id})}" class="btn btn-success btn-sm">UPDATE</a> 
-						<a th:href="@{/rateMaster/delete/{id}(id=${rateMaster.id})}" class="btn btn-danger btn-sm">DELETE</a> 
+<td> <a th:href="@{/admin/rateMaster/update/{id}(id=${rateMaster.id})}" class="btn btn-success btn-sm">UPDATE</a> 
+						<a th:href="@{/admin/rateMaster/delete/{id}(id=${rateMaster.id})}" class="btn btn-danger btn-sm">DELETE</a> 
 					</td>  
                       </tr> 
                     </tbody> 

@@ -37,7 +37,7 @@
 
               <div class="card">
                 <div class="card-header">
-                  <a th:href="@{/brand/create}" class="btn btn-primary btn-sm">ADD NEW BRAND</a>
+                  <a th:href="@{/admin/brand/create}" class="btn btn-primary btn-sm">ADD NEW BRAND</a>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -59,9 +59,9 @@
                         <td><img th:src=@{${brand.imagePath}} style="width:60px" /> </td>
                         <td th:text="${brand.status==1} ? 'ACTIVE' : 'NOT ACTIVE'"> </td>
 
-                        <td> <a th:href="@{/brand/update/{id}(id=${brand.id})}"
+                        <td> <a th:href="@{/admin/brand/update/{id}(id=${brand.id})}"
                             class="btn btn-success btn-sm">UPDATE</a>
-                          <a th:href="@{/brand/delete/{id}(id=${brand.id})}" class="btn btn-danger btn-sm">DELETE</a>
+                          <a th:href="@{/admin/brand/delete/{id}(id=${brand.id})}" class="btn btn-danger btn-sm">DELETE</a>
                         </td>
                       </tr>
                     </tbody>

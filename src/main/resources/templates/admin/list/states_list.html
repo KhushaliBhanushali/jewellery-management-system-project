@@ -34,7 +34,7 @@
  
               <div class="card"> 
                 <div class="card-header">
-<a th:href="@{/state/create}" class="btn btn-primary btn-sm">ADD NEW STATE</a>  
+<a th:href="@{/admin/state/create}" class="btn btn-primary btn-sm">ADD NEW STATE</a>  
                 </div> 
                 <!-- /.card-header --> 
                 <div class="card-body"> 
@@ -52,8 +52,8 @@
 <td th:text= "${state.id}"> </td>
 <td th:text= "${state.country.name}"> </td>
 <td th:text= "${state.name}"> </td>
-<td> <a th:href="@{/state/update/{id}(id=${state.id})}" class="btn btn-success btn-sm">UPDATE</a> 
-						<a th:href="@{/state/delete/{id}(id=${state.id})}" class="btn btn-danger btn-sm">DELETE</a> 
+<td> <a th:href="@{/admin/state/update/{id}(id=${state.id})}" class="btn btn-success btn-sm">UPDATE</a> 
+						<a th:href="@{/admin/state/delete/{id}(id=${state.id})}" class="btn btn-danger btn-sm">DELETE</a> 
 					</td>  
                       </tr> 
                     </tbody> 

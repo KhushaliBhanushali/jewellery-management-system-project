@@ -16,7 +16,7 @@ import com.springboot.jewellerysystem.service.ProductDetailService;
 import com.springboot.jewellerysystem.service.ProductService;
 
 @Controller
-@RequestMapping(value = "productDetail")
+@RequestMapping(value = "admin/productDetail")
 public class ProductDetailController {
 	private ProductDetailService productDetailService;
 	private ProductService productService;
@@ -46,7 +46,7 @@ public class ProductDetailController {
 	@GetMapping(value = "/delete/{id}")
 	public String deleteProductDetail(@PathVariable(value = "id") Integer id, String keyword) {
 		productDetailService.removeProductDetail(id);
-		return "redirect:/productDetail/index?keyword=" + keyword;
+		return "redirect:/admin/productDetail/index?keyword=" + keyword;
 	}
 
 	@GetMapping(value = "/update/{id}")
@@ -62,7 +62,7 @@ public class ProductDetailController {
 	@PostMapping(value = "/save")
 	public String save(ProductDetail productDetail) {
 		productDetailService.createOrUpdateProductDetail(productDetail);
-		return "redirect:/productDetail/index";
+		return "redirect:/admin/productDetail/index";
 	}
 
 }

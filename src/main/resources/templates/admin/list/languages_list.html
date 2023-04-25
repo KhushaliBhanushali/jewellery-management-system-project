@@ -34,7 +34,7 @@
  
               <div class="card"> 
                 <div class="card-header">
-<a th:href="@{/language/create}" class="btn btn-primary btn-sm">ADD NEW LANGUAGE</a>  
+<a th:href="@{/admin/language/create}" class="btn btn-primary btn-sm">ADD NEW LANGUAGE</a>  
                 </div> 
                 <!-- /.card-header --> 
                 <div class="card-body"> 
@@ -54,8 +54,8 @@
 <td th:text= "${language.name}"> </td>
 <td th:text="${language.status==1} ? 'ACTIVE' : 'NOT ACTIVE'"> </td>
 <td th:text= "${language.code}"> </td>
-<td> <a th:href="@{/language/update/{id}(id=${language.id})}" class="btn btn-success btn-sm">UPDATE</a> 
-						<a th:href="@{/language/delete/{id}(id=${language.id})}" class="btn btn-danger btn-sm">DELETE</a> 
+<td> <a th:href="@{/admin/language/update/{id}(id=${language.id})}" class="btn btn-success btn-sm">UPDATE</a> 
+						<a th:href="@{/admin/language/delete/{id}(id=${language.id})}" class="btn btn-danger btn-sm">DELETE</a> 
 					</td>  
                       </tr> 
                     </tbody> 

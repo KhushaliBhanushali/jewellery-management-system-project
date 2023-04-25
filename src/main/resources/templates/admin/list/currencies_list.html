@@ -34,7 +34,7 @@
  
               <div class="card"> 
                 <div class="card-header">
-<a th:href="@{/currency/create}" class="btn btn-primary btn-sm">ADD NEW CURRENCY</a>  
+<a th:href="@{/admin/currency/create}" class="btn btn-primary btn-sm">ADD NEW CURRENCY</a>  
                 </div> 
                 <!-- /.card-header --> 
                 <div class="card-body"> 
@@ -58,8 +58,8 @@
 <td th:text= "${currency.exchangeRate}"> </td>
 <td th:text= "${currency.code}"> </td>
 <td th:text="${currency.status==1} ? 'ACTIVE' : 'NOT ACTIVE'"> </td>
-<td> <a th:href="@{/currency/update/{id}(id=${currency.id})}" class="btn btn-success btn-sm">UPDATE</a> 
-						<a th:href="@{/currency/delete/{id}(id=${currency.id})}" class="btn btn-danger btn-sm">DELETE</a> 
+<td> <a th:href="@{/admin/currency/update/{id}(id=${currency.id})}" class="btn btn-success btn-sm">UPDATE</a> 
+						<a th:href="@{/admin/currency/delete/{id}(id=${currency.id})}" class="btn btn-danger btn-sm">DELETE</a> 
 					</td>  
                       </tr> 
                     </tbody> 

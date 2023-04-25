@@ -34,7 +34,7 @@
  
               <div class="card"> 
                 <div class="card-header">
-<a th:href="@{/faq/create}" class="btn btn-primary btn-sm">ADD NEW FAQ</a>  
+<a th:href="@{/admin/faq/create}" class="btn btn-primary btn-sm">ADD NEW FAQ</a>  
                 </div> 
                 <!-- /.card-header --> 
                 <div class="card-body"> 
@@ -54,8 +54,8 @@
 <td th:text= "${faq.question}"> </td>
 <td th:text= "${faq.answer}"> </td>
 <td th:text="${faq.status==1} ? 'ACTIVE' : 'NOT ACTIVE'"> </td>
-<td> <a th:href="@{/faq/update/{id}(id=${faq.id})}" class="btn btn-success btn-sm">UPDATE</a> 
-						<a th:href="@{/faq/delete/{id}(id=${faq.id})}" class="btn btn-danger btn-sm">DELETE</a> 
+<td> <a th:href="@{/admin/faq/update/{id}(id=${faq.id})}" class="btn btn-success btn-sm">UPDATE</a> 
+						<a th:href="@{/admin/faq/delete/{id}(id=${faq.id})}" class="btn btn-danger btn-sm">DELETE</a> 
 					</td>  
                       </tr> 
                     </tbody> 

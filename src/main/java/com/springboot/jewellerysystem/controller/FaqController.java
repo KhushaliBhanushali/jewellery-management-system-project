@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam; 
 import java.util.List; 
 @Controller 
-@RequestMapping(value = "faq") 
+@RequestMapping(value = "admin/faq") 
 public class FaqController { 
  private FaqService faqService; 
     public FaqController(FaqService faqService) { 
@@ -34,7 +34,7 @@ public class FaqController {
     @GetMapping(value = "/delete/{id}") 
     public String deleteFaq(@PathVariable(value = "id") Integer id, String keyword) { 
         faqService.removeFaq(id); 
-        return "redirect:/faq/index?keyword=" + keyword; 
+        return "redirect:/admin/faq/index?keyword=" + keyword; 
     }
  
     @GetMapping(value = "/update/{id}") 
@@ -47,7 +47,7 @@ public class FaqController {
     @PostMapping(value = "/save") 
     public String save(Faq faq) { 
         faqService.createOrUpdateFaq(faq); 
-        return "redirect:/faq/index"; 
+        return "redirect:/admin/faq/index"; 
     }
  
 } 

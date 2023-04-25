@@ -37,7 +37,7 @@
 
               <div class="card">
                 <div class="card-header">
-                  <a th:href="@{/slider/create}" class="btn btn-primary btn-sm">ADD NEW SLIDER</a>
+                  <a th:href="@{/admin/slider/create}" class="btn btn-primary btn-sm">ADD NEW SLIDER</a>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -67,9 +67,9 @@
                         <td th:text="${slider.btnText}"> </td>
                         <td th:text="${slider.btnLink}"> </td>
                         <td th:text="${slider.status==1} ? 'ACTIVE' : 'NOT ACTIVE'"> </td>
-                        <td> <a th:href="@{/slider/update/{id}(id=${slider.id})}"
+                        <td> <a th:href="@{/admin/slider/update/{id}(id=${slider.id})}"
                             class="btn btn-success btn-sm">UPDATE</a>
-                          <a th:href="@{/slider/delete/{id}(id=${slider.id})}" class="btn btn-danger btn-sm">DELETE</a>
+                          <a th:href="@{/admin/slider/delete/{id}(id=${slider.id})}" class="btn btn-danger btn-sm">DELETE</a>
                         </td>
                       </tr>
                     </tbody>

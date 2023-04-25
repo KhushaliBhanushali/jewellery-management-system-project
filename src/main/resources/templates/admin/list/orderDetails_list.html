@@ -34,7 +34,7 @@
  
               <div class="card"> 
                 <div class="card-header">
-<a th:href="@{/orderDetail/create}" class="btn btn-primary btn-sm">ADD NEW ORDERDETAIL</a>  
+<a th:href="@{/admin/orderDetail/create}" class="btn btn-primary btn-sm">ADD NEW ORDERDETAIL</a>  
                 </div> 
                 <!-- /.card-header --> 
                 <div class="card-body"> 
@@ -60,8 +60,8 @@
 <td th:text= "${orderDetail.price}"> </td>
 <td th:text= "${orderDetail.qty}"> </td>
 <td th:text= "${orderDetail.amount}"> </td>
-<td> <a th:href="@{/orderDetail/update/{id}(id=${orderDetail.id})}" class="btn btn-success btn-sm">UPDATE</a> 
-						<a th:href="@{/orderDetail/delete/{id}(id=${orderDetail.id})}" class="btn btn-danger btn-sm">DELETE</a> 
+<td> <a th:href="@{/admin/orderDetail/update/{id}(id=${orderDetail.id})}" class="btn btn-success btn-sm">UPDATE</a> 
+						<a th:href="@{/admin/orderDetail/delete/{id}(id=${orderDetail.id})}" class="btn btn-danger btn-sm">DELETE</a> 
 					</td>  
                       </tr> 
                     </tbody> 

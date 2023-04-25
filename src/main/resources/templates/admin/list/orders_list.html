@@ -34,7 +34,7 @@
  
               <div class="card"> 
                 <div class="card-header">
-<a th:href="@{/order/create}" class="btn btn-primary btn-sm">ADD NEW ORDER</a>  
+<a th:href="@{/admin/order/create}" class="btn btn-primary btn-sm">ADD NEW ORDER</a>  
                 </div> 
                 <!-- /.card-header --> 
                 <div class="card-body"> 
@@ -74,8 +74,8 @@
 <td th:text= "${order.paymentDetail}"> </td>
 <td th:text= "${order.grandTotal}"> </td>
 <td th:text= "${order.discount}"> </td>
-<td> <a th:href="@{/order/update/{id}(id=${order.id})}" class="btn btn-success btn-sm">UPDATE</a> 
-						<a th:href="@{/order/delete/{id}(id=${order.id})}" class="btn btn-danger btn-sm">DELETE</a> 
+<td> <a th:href="@{/admin/order/update/{id}(id=${order.id})}" class="btn btn-success btn-sm">UPDATE</a> 
+						<a th:href="@{/admin/order/delete/{id}(id=${order.id})}" class="btn btn-danger btn-sm">DELETE</a> 
 					</td>  
                       </tr> 
                     </tbody> 

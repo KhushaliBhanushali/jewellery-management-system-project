@@ -34,7 +34,7 @@
  
               <div class="card"> 
                 <div class="card-header">
-<a th:href="@{/user/create}" class="btn btn-primary btn-sm">ADD NEW USER</a>  
+<a th:href="@{/admin/user/create}" class="btn btn-primary btn-sm">ADD NEW USER</a>  
                 </div> 
                 <!-- /.card-header --> 
                 <div class="card-body"> 
@@ -64,8 +64,8 @@
 <td th:text= "${user.role}"> </td>
 <td th:text="${user.status==1} ? 'ACTIVE' : 'NOT ACTIVE'" > </td>
 <td th:text= "${user.entryDate}"> </td>
-<td> <a th:href="@{/user/update/{id}(id=${user.id})}" class="btn btn-success btn-sm">UPDATE</a> 
-						<a th:href="@{/user/delete/{id}(id=${user.id})}" class="btn btn-danger btn-sm">DELETE</a> 
+<td> <a th:href="@{/admin/user/update/{id}(id=${user.id})}" class="btn btn-success btn-sm">UPDATE</a> 
+						<a th:href="@{/admin/user/delete/{id}(id=${user.id})}" class="btn btn-danger btn-sm">DELETE</a> 
 					</td>  
                       </tr> 
                     </tbody> 

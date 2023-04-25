@@ -17,7 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.util.List; 
 @Controller 
-@RequestMapping(value = "mainCategory") 
+@RequestMapping(value = "admin/mainCategory") 
 public class MainCategoryController { 
  private MainCategoryService mainCategoryService; 
     public MainCategoryController(MainCategoryService mainCategoryService) { 
@@ -40,7 +40,7 @@ public class MainCategoryController {
     @GetMapping(value = "/delete/{id}") 
     public String deleteMainCategory(@PathVariable(value = "id") Integer id, String keyword) { 
         mainCategoryService.removeMainCategory(id); 
-        return "redirect:/mainCategory/index?keyword=" + keyword; 
+        return "redirect:/admin/mainCategory/index?keyword=" + keyword; 
     }
  
     @GetMapping(value = "/update/{id}") 
@@ -54,13 +54,15 @@ public class MainCategoryController {
     public String save(MainCategory mainCategory, @RequestParam("file")MultipartFile file) throws IOException { 
       
     	String fileName = StringUtils.cleanPath(file.getOriginalFilename());
+    	
+    	if(fileName.length() > 3) {
 		mainCategory.setImage(fileName);
-		String uploadDir = "assets/images/mainCategory";
+		String uploadDir = "assets1/images/mainCategory";
 		FileUploadUtil.saveFile(uploadDir, fileName, file);
-
+    	}
     	
     	mainCategoryService.createOrUpdateMainCategory(mainCategory); 
-        return "redirect:/mainCategory/index"; 
+        return "redirect:/admin/mainCategory/index"; 
     }
  
 } 

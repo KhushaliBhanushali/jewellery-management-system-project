@@ -34,7 +34,7 @@
  
               <div class="card"> 
                 <div class="card-header">
-<a th:href="@{/newsletter/create}" class="btn btn-primary btn-sm">ADD NEW NEWSLETTER</a>  
+<a th:href="@{/admin/newsletter/create}" class="btn btn-primary btn-sm">ADD NEW NEWSLETTER</a>  
                 </div> 
                 <!-- /.card-header --> 
                 <div class="card-body"> 
@@ -52,8 +52,8 @@
 <td th:text= "${newsletter.id}"> </td>
 <td th:text= "${newsletter.email}"> </td>
 <td th:text="${newsletter.status==1} ? 'ACTIVE' : 'NOT ACTIVE'"> </td>
-<td> <a th:href="@{/newsletter/update/{id}(id=${newsletter.id})}" class="btn btn-success btn-sm">UPDATE</a> 
-						<a th:href="@{/newsletter/delete/{id}(id=${newsletter.id})}" class="btn btn-danger btn-sm">DELETE</a> 
+<td> <a th:href="@{/admin/newsletter/update/{id}(id=${newsletter.id})}" class="btn btn-success btn-sm">UPDATE</a> 
+						<a th:href="@{/admin/newsletter/delete/{id}(id=${newsletter.id})}" class="btn btn-danger btn-sm">DELETE</a> 
 					</td>  
                       </tr> 
                     </tbody> 

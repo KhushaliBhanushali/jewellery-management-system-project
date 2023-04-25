@@ -16,7 +16,7 @@ import com.springboot.jewellerysystem.service.CountryService;
 import com.springboot.jewellerysystem.service.StateService;
 
 @Controller
-@RequestMapping(value = "state")
+@RequestMapping(value = "admin/state")
 public class StateController {
 	private StateService stateService;
 	private CountryService countryService;
@@ -46,7 +46,7 @@ public class StateController {
 	@GetMapping(value = "/delete/{id}")
 	public String deleteState(@PathVariable(value = "id") Integer id, String keyword) {
 		stateService.removeState(id);
-		return "redirect:/state/index?keyword=" + keyword;
+		return "redirect:/admin/state/index?keyword=" + keyword;
 	}
 
 	@GetMapping(value = "/update/{id}")
@@ -62,7 +62,7 @@ public class StateController {
 	@PostMapping(value = "/save")
 	public String save(State state) {
 		stateService.createOrUpdateState(state);
-		return "redirect:/state/index";
+		return "redirect:/admin/state/index";
 	}
 
 }

@@ -39,7 +39,7 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form id="quickForm" method="post" th:action="@{save}" enctype="multipart/form-data">
+                <form id="quickForm" method="post" th:action="@{/admin/category/save}" enctype="multipart/form-data">
                   <div class="card-body">
                     <div class="form-group">
                       <label for="mainCategory">Main Category</label>
@@ -56,7 +56,7 @@
                     </div>
                     <div class="form-group">
                       <label for="image">Image</label>
-                      <input type="file" accept="image/png, image/jpeg" name="file" class="form-control"  placeholder="Enter Image" >
+                      <input type="file" accept="image/png, image/jpeg" name="file" class="form-control" id="file" placeholder="Enter Image" >
                     </div>
                     <div class="form-group">
                       <label for="status">Status</label>

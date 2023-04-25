@@ -37,7 +37,7 @@
 
               <div class="card">
                 <div class="card-header">
-                  <a th:href="@{/style/create}" class="btn btn-primary btn-sm">ADD NEW STYLE</a>
+                  <a th:href="@{/admin/style/create}" class="btn btn-primary btn-sm">ADD NEW STYLE</a>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -57,9 +57,9 @@
                         <td><img th:src="@{${style.imagePath}}" style="width:70px" /></td>
                         <td th:text="${style.name}"> </td>
                         <td th:text="${style.status==1} ? 'ACTIVE' : 'NOT ACTIVE'" > </td>
-                        <td> <a th:href="@{/style/update/{id}(id=${style.id})}"
+                        <td> <a th:href="@{/admin/style/update/{id}(id=${style.id})}"
                             class="btn btn-success btn-sm">UPDATE</a>
-                          <a th:href="@{/style/delete/{id}(id=${style.id})}" class="btn btn-danger btn-sm">DELETE</a>
+                          <a th:href="@{/admin/style/delete/{id}(id=${style.id})}" class="btn btn-danger btn-sm">DELETE</a>
                         </td>
                       </tr>
                     </tbody>

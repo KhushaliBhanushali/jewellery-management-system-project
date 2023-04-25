@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam; 
 import java.util.List; 
 @Controller 
-@RequestMapping(value = "feedback") 
+@RequestMapping(value = "admin/feedback") 
 public class FeedbackController { 
  private FeedbackService feedbackService; 
     public FeedbackController(FeedbackService feedbackService) { 
@@ -34,7 +34,7 @@ public class FeedbackController {
     @GetMapping(value = "/delete/{id}") 
     public String deleteFeedback(@PathVariable(value = "id") Integer id, String keyword) { 
         feedbackService.removeFeedback(id); 
-        return "redirect:/feedback/index?keyword=" + keyword; 
+        return "redirect:/admin/feedback/index?keyword=" + keyword; 
     }
  
     @GetMapping(value = "/update/{id}") 
@@ -47,7 +47,7 @@ public class FeedbackController {
     @PostMapping(value = "/save") 
     public String save(Feedback feedback) { 
         feedbackService.createOrUpdateFeedback(feedback); 
-        return "redirect:/feedback/index"; 
+        return "redirect:/admin/feedback/index"; 
     }
  
 } 

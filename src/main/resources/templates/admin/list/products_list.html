@@ -38,7 +38,7 @@
 
 							<div class="card">
 								<div class="card-header">
-									<a th:href="@{/product/create}" class="btn btn-primary btn-sm">ADD
+									<a th:href="@{/admin/product/create}" class="btn btn-primary btn-sm">ADD
 										NEW PRODUCT</a>
 								</div>
 								<!-- /.card-header -->
@@ -79,9 +79,9 @@
 												<td th:text="${product.otherCharges}"></td>
 												<td th:text="${product.productDescription}"></td>
 												<td th:text="${product.status==1} ? 'ACTIVE' : 'NOT ACTIVE'" ></td>
-												<td><a th:href="@{/product/update/{id}(id=${product.id})}"
+												<td><a th:href="@{/admin/product/update/{id}(id=${product.id})}"
 														class="btn btn-success btn-sm">UPDATE</a> <a
-														th:href="@{/product/delete/{id}(id=${product.id})}"
+														th:href="@{/admin/product/delete/{id}(id=${product.id})}"
 														class="btn btn-danger btn-sm">DELETE</a></td>
 											</tr>
 										</tbody>

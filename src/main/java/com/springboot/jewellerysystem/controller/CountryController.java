@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam; 
 import java.util.List; 
 @Controller 
-@RequestMapping(value = "country") 
+@RequestMapping(value = "admin/country") 
 public class CountryController { 
  private CountryService countryService; 
     public CountryController(CountryService countryService) { 
@@ -34,7 +34,7 @@ public class CountryController {
     @GetMapping(value = "/delete/{id}") 
     public String deleteCountry(@PathVariable(value = "id") Integer id, String keyword) { 
         countryService.removeCountry(id); 
-        return "redirect:/country/index?keyword=" + keyword; 
+        return "redirect:/admin/country/index?keyword=" + keyword; 
     }
  
     @GetMapping(value = "/update/{id}") 
@@ -47,7 +47,7 @@ public class CountryController {
     @PostMapping(value = "/save") 
     public String save(Country country) { 
         countryService.createOrUpdateCountry(country); 
-        return "redirect:/country/index"; 
+        return "redirect:/admin/country/index"; 
     }
  
 } 

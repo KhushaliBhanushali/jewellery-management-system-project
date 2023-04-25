@@ -20,7 +20,7 @@ import com.springboot.jewellerysystem.service.MainCategoryService;
 import com.springboot.jewellerysystem.util.FileUploadUtil;
 
 @Controller
-@RequestMapping(value = "category")
+@RequestMapping(value = "admin/category")
 public class CategoryController {
 	private CategoryService categoryService;
 	private MainCategoryService mainCategoryService;
@@ -50,12 +50,13 @@ public class CategoryController {
 	@GetMapping(value = "/delete/{id}")
 	public String deleteCategory(@PathVariable(value = "id") Integer id, String keyword) {
 		categoryService.removeCategory(id);
-		return "redirect:/category/index?keyword=" + keyword;
+		return "redirect:/admin/category/index?keyword=" + keyword;
 	}
 
 	@GetMapping(value = "/update/{id}")
 	public String updateCategory(@PathVariable(value = "id") Integer id, Model model) {
 		Category category = categoryService.loadCategoryById(id);
+		
 		model.addAttribute("category", category);
 		List<MainCategory> mainCategories = mainCategoryService.getAllMainCategory();
 		model.addAttribute("listMainCategories", mainCategories);
@@ -64,16 +65,17 @@ public class CategoryController {
 	}
 
 	@PostMapping(value = "/save")
-	public String save(Category category, @RequestParam("file")MultipartFile file) throws IOException {
-		
-		String fileName = StringUtils.cleanPath(file.getOriginalFilename());
-		category.setImage(fileName);
-		String uploadDir = "assets/images/category";
-		FileUploadUtil.saveFile(uploadDir, fileName, file);
+	public String save(Category category, @RequestParam("file") MultipartFile file) throws IOException {
 
+		String fileName = StringUtils.cleanPath(file.getOriginalFilename());
+		if (fileName.length() > 3) {
+		category.setImage(fileName);
+		String uploadDir = "assets1/images/category";
+		FileUploadUtil.saveFile(uploadDir, fileName, file);
+		}
 		
 		categoryService.createOrUpdateCategory(category);
-		return "redirect:/category/index";
+		return "redirect:/admin/category/index";
 	}
 
 }

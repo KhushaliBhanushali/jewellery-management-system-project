@@ -37,7 +37,7 @@
 
               <div class="card">
                 <div class="card-header">
-                  <a th:href="@{/contactUs/create}" class="btn btn-primary btn-sm">ADD NEW CONTACTUS</a>
+                  <a th:href="@{/admin/contactUs/create}" class="btn btn-primary btn-sm">ADD NEW CONTACTUS</a>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -65,9 +65,9 @@
                         <td th:text="${contactUs.message}"> </td>
                         <td th:text="${contactUs.enquiryDate}"> </td>
                         <td th:text="${contactUs.isRead==1} ? 'YES' : 'NO'"> </td>
-                        <td> <a th:href="@{/contactUs/update/{id}(id=${contactUs.id})}"
+                        <td> <a th:href="@{/admin/contactUs/update/{id}(id=${contactUs.id})}"
                             class="btn btn-success btn-sm">UPDATE</a>
-                          <a th:href="@{/contactUs/delete/{id}(id=${contactUs.id})}"
+                          <a th:href="@{/admin/contactUs/delete/{id}(id=${contactUs.id})}"
                             class="btn btn-danger btn-sm">DELETE</a>
                         </td>
                       </tr>

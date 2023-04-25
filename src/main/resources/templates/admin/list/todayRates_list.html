@@ -34,7 +34,7 @@
  
               <div class="card"> 
                 <div class="card-header">
-<a th:href="@{/todayRate/create}" class="btn btn-primary btn-sm">ADD NEW TODAYRATE</a>  
+<a th:href="@{/admin/todayRate/create}" class="btn btn-primary btn-sm">ADD NEW TODAYRATE</a>  
                 </div> 
                 <!-- /.card-header --> 
                 <div class="card-body"> 
@@ -52,8 +52,8 @@
 <td th:text= "${todayRate.id}"> </td>
 <td th:text= "${todayRate.name}"> </td>
 <td th:text= "${todayRate.price}"> </td>
-<td> <a th:href="@{/todayRate/update/{id}(id=${todayRate.id})}" class="btn btn-success btn-sm">UPDATE</a> 
-						<a th:href="@{/todayRate/delete/{id}(id=${todayRate.id})}" class="btn btn-danger btn-sm">DELETE</a> 
+<td> <a th:href="@{/admin/todayRate/update/{id}(id=${todayRate.id})}" class="btn btn-success btn-sm">UPDATE</a> 
+						<a th:href="@{/admin/todayRate/delete/{id}(id=${todayRate.id})}" class="btn btn-danger btn-sm">DELETE</a> 
 					</td>  
                       </tr> 
                     </tbody> 

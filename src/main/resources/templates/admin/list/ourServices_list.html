@@ -34,7 +34,7 @@
  
               <div class="card"> 
                 <div class="card-header">
-<a th:href="@{/ourService/create}" class="btn btn-primary btn-sm">ADD NEW OURSERVICE</a>  
+<a th:href="@{/admin/ourService/create}" class="btn btn-primary btn-sm">ADD NEW OURSERVICE</a>  
                 </div> 
                 <!-- /.card-header --> 
                 <div class="card-body"> 
@@ -56,8 +56,8 @@
 <td th:text= "${ourService.description}"> </td>
 <td > <img th:src=@{${ourService.imagePath}} style="width:60px"/></td>
 <td th:text="${ourService.status==1} ? 'ACTIVE' : 'NOT ACTIVE'" > </td>
-<td> <a th:href="@{/ourService/update/{id}(id=${ourService.id})}" class="btn btn-success btn-sm">UPDATE</a> 
-						<a th:href="@{/ourService/delete/{id}(id=${ourService.id})}" class="btn btn-danger btn-sm">DELETE</a> 
+<td> <a th:href="@{/admin/ourService/update/{id}(id=${ourService.id})}" class="btn btn-success btn-sm">UPDATE</a> 
+						<a th:href="@{/admin/ourService/delete/{id}(id=${ourService.id})}" class="btn btn-danger btn-sm">DELETE</a> 
 					</td>  
                       </tr> 
                     </tbody> 

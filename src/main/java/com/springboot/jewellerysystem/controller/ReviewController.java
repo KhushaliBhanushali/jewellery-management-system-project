@@ -16,7 +16,7 @@ import com.springboot.jewellerysystem.service.ProductService;
 import com.springboot.jewellerysystem.service.ReviewService;
 
 @Controller
-@RequestMapping(value = "review")
+@RequestMapping(value = "admin/review")
 public class ReviewController {
 	private ReviewService reviewService;
 	private ProductService productService;
@@ -46,7 +46,7 @@ public class ReviewController {
 	@GetMapping(value = "/delete/{id}")
 	public String deleteReview(@PathVariable(value = "id") Integer id, String keyword) {
 		reviewService.removeReview(id);
-		return "redirect:/review/index?keyword=" + keyword;
+		return "redirect:/admin/review/index?keyword=" + keyword;
 	}
 
 	@GetMapping(value = "/update/{id}")
@@ -62,7 +62,7 @@ public class ReviewController {
 	@PostMapping(value = "/save")
 	public String save(Review review) {
 		reviewService.createOrUpdateReview(review);
-		return "redirect:/review/index";
+		return "redirect:/admin/review/index";
 	}
 
 }

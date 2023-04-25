@@ -17,7 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.util.List; 
 @Controller 
-@RequestMapping(value = "style") 
+@RequestMapping(value = "admin/style") 
 public class StyleController { 
  private StyleService styleService; 
     public StyleController(StyleService styleService) { 
@@ -40,7 +40,7 @@ public class StyleController {
     @GetMapping(value = "/delete/{id}") 
     public String deleteStyle(@PathVariable(value = "id") Integer id, String keyword) { 
         styleService.removeStyle(id); 
-        return "redirect:/style/index?keyword=" + keyword; 
+        return "redirect:/admin/style/index?keyword=" + keyword; 
     }
  
     @GetMapping(value = "/update/{id}") 
@@ -54,12 +54,15 @@ public class StyleController {
     public String save(Style style, @RequestParam("file")MultipartFile file) throws IOException {
     	
     	String fileName = StringUtils.cleanPath(file.getOriginalFilename());
+    	
+    	if(fileName.length() > 3) {
 		style.setImage(fileName);
-		String uploadDir = "assets/images/style";
+		String uploadDir = "assets1/images/style";
 		FileUploadUtil.saveFile(uploadDir, fileName, file);
+    	}
     	
         styleService.createOrUpdateStyle(style); 
-        return "redirect:/style/index"; 
+        return "redirect:/admin/style/index"; 
     }
  
 } 

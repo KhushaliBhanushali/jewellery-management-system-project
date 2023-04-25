@@ -39,7 +39,7 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form id="quickForm" enctype="multipart/form-data" method="post" th:action="@{/bannerType/save}"
+                <form id="quickForm" enctype="multipart/form-data" method="post" th:action="@{/admin/bannerType/save}"
                   th:object="${bannerType}">
                   <div class="card-body">
                     <div class="form-group">
@@ -68,7 +68,7 @@
                   <!-- /.card-body -->
                   <div class="card-footer">
                     <button type="submit" class="btn btn-primary btn-sm">UPDATE</button>
-                    <a th:href="@{/bannerType/index}"><button type="button"
+                    <a th:href="@{/admin/bannerType/index}"><button type="button"
                         class="btn btn-dark btn-sm">BACK</button></a>
                   </div>
                 </form>

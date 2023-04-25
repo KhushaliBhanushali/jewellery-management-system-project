@@ -34,7 +34,7 @@
  
               <div class="card"> 
                 <div class="card-header">
-<a th:href="@{/productDetail/create}" class="btn btn-primary btn-sm">ADD NEW PRODUCTDETAIL</a>  
+<a th:href="@{/admin/productDetail/create}" class="btn btn-primary btn-sm">ADD NEW PRODUCTDETAIL</a>  
                 </div> 
                 <!-- /.card-header --> 
                 <div class="card-body"> 
@@ -56,8 +56,8 @@
 <td th:text= "${productDetail.title}"> </td>
 <td th:text= "${productDetail.detail}"> </td>
 <td th:text="${productDetail.status==1} ? 'ACTIVE' : 'NOT ACTIVE'" ></td> </td>
-<td> <a th:href="@{/productDetail/update/{id}(id=${productDetail.id})}" class="btn btn-success btn-sm">UPDATE</a> 
-						<a th:href="@{/productDetail/delete/{id}(id=${productDetail.id})}" class="btn btn-danger btn-sm">DELETE</a> 
+<td> <a th:href="@{/admin/productDetail/update/{id}(id=${productDetail.id})}" class="btn btn-success btn-sm">UPDATE</a> 
+						<a th:href="@{/admin/productDetail/delete/{id}(id=${productDetail.id})}" class="btn btn-danger btn-sm">DELETE</a> 
 					</td>  
                       </tr> 
                     </tbody> 

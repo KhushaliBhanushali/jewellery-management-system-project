@@ -138,13 +138,13 @@
                         <div class="jewellery-product_slider">
 
                             <!-- Begin Jewellery's Slide Item Area -->
-                            <div class="slide-item" th:each="product:${listProduct1}">
+                            <div class="slide-item" th:each="category:${listCategory}">
                                 <div class="single_product">
                                     <div class="product-img">
                                         <a href="single-product.html">
-                                            <img class="primary-img" th:src="@{${product.imagePath}}"
+                                            <img class="primary-img" th:src="@{${category.products[0].imagePath}}"
                                                 alt="Jewellery's Product Image">
-                                            <img class="secondary-img" th:src="@{${product.imagePath}}"
+                                            <img class="secondary-img" th:src="@{${category.products[0].imagePath}}"
                                                 alt="Jewellery's Product Image">
                                         </a>
                                         <span class="sticker">New</span>
@@ -168,9 +168,10 @@
                                     <div class="jewellery-product_content">
                                         <div class="product-desc_info">
                                             <h6><a class="product-name" href="single-product.html"
-                                                    th:text="${product.name}"></a></h6>
+                                                    th:text="${category.products[0].name}"></a></h6>
                                             <div class="price-box">
-                                                <span class="new-price">₹10120.80</span>
+                                                <span class="new-price"
+                                                    th:text="${category.products.size()}"></span>₹10120.80</span>
                                             </div>
                                             <div class="additional-add_action">
                                                 <ul>
@@ -239,7 +240,7 @@
                                 <h4>New Products</h4>
                             </div>
                             <ul class="nav product-menu">
-                                <li th:each="cat,itr:${tabCategory}">
+                                <li th:each="cat,itr:${tabCategory1}">
                                     <a th:class="${itr.index == 0} ? 'active' : ''" data-bs-toggle="tab"
                                         th:href="@{'#'+${cat.name}}">
                                         <span th:text="${cat.name}"></span>
@@ -249,7 +250,7 @@
                             </ul>
                         </div>
 
-                        <div class="tab-content jewellery-tab_content" th:each="cat,itr:${tabCategory}">
+                        <div class="tab-content jewellery-tab_content" th:each="cat,itr:${tabCategory1}">
                             <div th:id="${cat.name}" th:class="${itr.index == 0} ? 'tab-pane active show' : 'tab-pane' "
                                 role="tabpanel">
                                 <div class="jewellery-product-tab_slider-2">
@@ -355,19 +356,19 @@
                     <div class="col-lg-12">
                         <div class="product-tab">
                             <ul class="nav product-menu">
-                                <li><a class="active" data-bs-toggle="tab"
-                                        href="#necklaces-1"><span>Necklaces</span></a>
+                                <li th:each="cat,itr:${tabCategory}"><a th:class="${itr.index == 0} ? 'active' : ''"
+                                        data-bs-toggle="tab" th:href="@{'#'+${cat.name}}">
+                                        <span th:text="${cat.name}"></span>
+                                    </a>
                                 </li>
-                                <li><a data-bs-toggle="tab" href="#earrings-1"><span>Earrings</span></a></li>
-                                <li><a data-bs-toggle="tab" href="#bracelet-1"><span>Bracelet</span></a></li>
-                                <li><a data-bs-toggle="tab" href="#rings-1"><span>Rings</span></a></li>
                             </ul>
                         </div>
-                        <div class="tab-content jewellery-tab_content">
+                        <div class="tab-content jewellery-tab_content" th:each="cat,itr:${tabCategory}">
 
-                            <div id="necklaces-1" class="tab-pane active show" role="tabpanel">
+                            <div th:id="${cat.name}" th:class="${itr.index == 0} ? 'tab-pane active show' : 'tab-pane' "
+                                role="tabpanel">
                                 <div class="jewellery-product-tab_slider-3">
-                                    <div class="slide-item" th:each="product:${listProduct3}">
+                                    <div class="slide-item" th:each="product:${cat.products}">
                                         <div class="single_product">
                                             <div class="product-img">
                                                 <a href="single-product.html">
@@ -427,194 +428,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div id="earrings-1" class="tab-pane" role="tabpanel">
-                                <div class="jewellery-product-tab_slider-3">
-                                    <div class="slide-item" th:each="product:${listProduct4}">
-                                        <div class="single_product">
-                                            <div class="product-img">
-                                                <a href="single-product.html">
-                                                    <img class="primary-img" th:src="@{${product.imagePath}}"
-                                                        alt="Jewellery's Product Image">
-                                                    <img class="secondary-img" th:src="@{${product.imagePath}}"
-                                                        alt="Jewellery's Product Image">
-                                                </a>
-                                                <span class="sticker">New</span>
-                                                <div class="add-actions">
-                                                    <ul>
-                                                        <li><a class="jewellery-add_cart" href="cart.html"
-                                                                data-bs-toggle="tooltip" data-placement="top"
-                                                                title="Add To Cart"><i class="ion-bag"></i></a>
-                                                        </li>
-                                                        <li><a class="jewellery-add_compare" href="compare.html"
-                                                                data-bs-toggle="tooltip" data-placement="top"
-                                                                title="Compare This Product"><i
-                                                                    class="ion-ios-shuffle-strong"></i></a></li>
-                                                        <li class="quick-view-btn" data-bs-toggle="modal"
-                                                            data-bs-target="#exampleModalCenter"><a
-                                                                href="javascript:void(0)" data-bs-toggle="tooltip"
-                                                                data-placement="top" title="Quick View"><i
-                                                                    class="ion-eye"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="jewellery-product_content">
-                                                <div class="product-desc_info">
-                                                    <h6><a class="product-name" href="single-product.html"
-                                                            th:text="${product.name}"></a></h6>
-                                                    <div class="price-box">
-                                                        <span class="new-price">₹10120.80</span>
-                                                    </div>
-                                                    <div class="additional-add_action">
-                                                        <ul>
-                                                            <li><a class="jewellery-add_compare" href="wishlist.html"
-                                                                    data-bs-toggle="tooltip" data-placement="top"
-                                                                    title="Add To Wishlist"><i
-                                                                        class="ion-android-favorite-outline"></i></a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="rating-box">
-                                                        <ul>
-                                                            <li><i class="fa fa-star-of-david"></i></li>
-                                                            <li><i class="fa fa-star-of-david"></i></li>
-                                                            <li><i class="fa fa-star-of-david"></i></li>
-                                                            <li><i class="fa fa-star-of-david"></i></li>
-                                                            <li class="silver-color"><i class="fa fa-star-of-david"></i>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="bracelet-1" class="tab-pane" role="tabpanel">
-                                <div class="jewellery-product-tab_slider-3">
-                                    <div class="slide-item" th:each="product:${listProduct3}">
-                                        <div class="single_product">
-                                            <div class="product-img">
-                                                <a href="single-product.html">
-                                                    <img class="primary-img" th:src="@{${product.imagePath}}"
-                                                        alt="Jewellery's Product Image">
-                                                    <img class="secondary-img" th:src="@{${product.imagePath}}"
-                                                        alt="Jewellery's Product Image">
-                                                </a>
-                                                <span class="sticker">New</span>
-                                                <div class="add-actions">
-                                                    <ul>
-                                                        <li><a class="jewellery-add_cart" href="cart.html"
-                                                                data-bs-toggle="tooltip" data-placement="top"
-                                                                title="Add To Cart"><i class="ion-bag"></i></a>
-                                                        </li>
-                                                        <li><a class="jewellery-add_compare" href="compare.html"
-                                                                data-bs-toggle="tooltip" data-placement="top"
-                                                                title="Compare This Product"><i
-                                                                    class="ion-ios-shuffle-strong"></i></a></li>
-                                                        <li class="quick-view-btn" data-bs-toggle="modal"
-                                                            data-bs-target="#exampleModalCenter"><a
-                                                                href="javascript:void(0)" data-bs-toggle="tooltip"
-                                                                data-placement="top" title="Quick View"><i
-                                                                    class="ion-eye"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="jewellery-product_content">
-                                                <div class="product-desc_info">
-                                                    <h6><a class="product-name" href="single-product.html"
-                                                            th:text="${product.name}"></a></h6>
-                                                    <div class="price-box">
-                                                        <span class="new-price">₹10120.80</span>
-                                                    </div>
-                                                    <div class="additional-add_action">
-                                                        <ul>
-                                                            <li><a class="jewellery-add_compare" href="wishlist.html"
-                                                                    data-bs-toggle="tooltip" data-placement="top"
-                                                                    title="Add To Wishlist"><i
-                                                                        class="ion-android-favorite-outline"></i></a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="rating-box">
-                                                        <ul>
-                                                            <li><i class="fa fa-star-of-david"></i></li>
-                                                            <li><i class="fa fa-star-of-david"></i></li>
-                                                            <li><i class="fa fa-star-of-david"></i></li>
-                                                            <li><i class="fa fa-star-of-david"></i></li>
-                                                            <li class="silver-color"><i class="fa fa-star-of-david"></i>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="anklet-1" class="tab-pane" role="tabpanel">
-                                <div class="jewellery-product-tab_slider-3">
-                                    <!-- Begin Jewellery's Slide Item Area -->
-                                    <div class="slide-item" th:each="product:${listProduct4}">
-                                        <div class="single_product">
-                                            <div class="product-img">
-                                                <a href="single-product.html">
-                                                    <img class="primary-img" th:src="@{${product.imagePath}}"
-                                                        alt="Jewellery's Product Image">
-                                                    <img class="secondary-img" th:src="@{${product.imagePath}}"
-                                                        alt="Jewellery's Product Image">
-                                                </a>
-                                                <span class="sticker">New</span>
-                                                <div class="add-actions">
-                                                    <ul>
-                                                        <li><a class="jewellery-add_cart" href="cart.html"
-                                                                data-bs-toggle="tooltip" data-placement="top"
-                                                                title="Add To Cart"><i class="ion-bag"></i></a>
-                                                        </li>
-                                                        <li><a class="jewellery-add_compare" href="compare.html"
-                                                                data-bs-toggle="tooltip" data-placement="top"
-                                                                title="Compare This Product"><i
-                                                                    class="ion-ios-shuffle-strong"></i></a></li>
-                                                        <li class="quick-view-btn" data-bs-toggle="modal"
-                                                            data-bs-target="#exampleModalCenter"><a
-                                                                href="javascript:void(0)" data-bs-toggle="tooltip"
-                                                                data-placement="top" title="Quick View"><i
-                                                                    class="ion-eye"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="jewellery-product_content">
-                                                <div class="product-desc_info">
-                                                    <h6><a class="product-name" href="single-product.html"
-                                                            th:text="${product.name}"></a></h6>
-                                                    <div class="price-box">
-                                                        <span class="new-price">₹10120.80</span>
-                                                    </div>
-                                                    <div class="additional-add_action">
-                                                        <ul>
-                                                            <li><a class="jewellery-add_compare" href="wishlist.html"
-                                                                    data-bs-toggle="tooltip" data-placement="top"
-                                                                    title="Add To Wishlist"><i
-                                                                        class="ion-android-favorite-outline"></i></a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="rating-box">
-                                                        <ul>
-                                                            <li><i class="fa fa-star-of-david"></i></li>
-                                                            <li><i class="fa fa-star-of-david"></i></li>
-                                                            <li><i class="fa fa-star-of-david"></i></li>
-                                                            <li><i class="fa fa-star-of-david"></i></li>
-                                                            <li class="silver-color"><i class="fa fa-star-of-david"></i>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Jewellery's Slide Item Area End Here -->
-                                </div>
-                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -660,19 +474,19 @@
                                 <h4>Trending Products</h4>
                             </div>
                             <ul class="nav product-menu">
-                                <li><a class="active" data-bs-toggle="tab"
-                                        href="#necklaces-2"><span>Necklaces</span></a>
+                                <li th:each="cat,itr:${tabCategory}"><a th:class="${itr.index == 0} ? 'active' : ''"
+                                        data-bs-toggle="tab" th:href="@{'#'+${cat.name}}">
+                                        <span th:text="${cat.name}"></span>
+                                    </a>
                                 </li>
-                                <li><a data-bs-toggle="tab" href="#earrings-2"><span>Earrings</span></a></li>
-                                <li><a data-bs-toggle="tab" href="#bracelet-2"><span>Bracelet</span></a></li>
-                                <li><a data-bs-toggle="tab" href="#anklet-2"><span>Anklet</span></a></li>
                             </ul>
                         </div>
-                        <div class="tab-content jewellery-tab_content">
-                            <div id="necklaces-2" class="tab-pane active show" role="tabpanel">
+                        <div class="tab-content jewellery-tab_content" th:each=" cat,itr:${tabCategory}">
+                            <div th:id="${cat.name}" th:class="${itr.index == 0} ? 'tab-pane active show' : 'tab-pane' "
+                                role="tabpanel">
                                 <div class="jewellery-product-tab_slider-2">
                                     <!-- Begin Jewellery's Slide Item Area -->
-                                    <div class="slide-item" th:each="product:${listProduct4}">
+                                    <div class="slide-item" th:each="product:${cat.products}">
                                         <div class="single_product">
                                             <div class="product-img">
                                                 <a href="single-product.html">

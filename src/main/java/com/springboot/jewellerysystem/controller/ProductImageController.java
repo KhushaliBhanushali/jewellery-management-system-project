@@ -20,7 +20,7 @@ import com.springboot.jewellerysystem.service.ProductService;
 import com.springboot.jewellerysystem.util.FileUploadUtil;
 
 @Controller
-@RequestMapping(value = "productImage")
+@RequestMapping(value = "admin/productImage")
 public class ProductImageController {
 	private ProductImageService productImageService;
 	private ProductService productService;
@@ -50,7 +50,7 @@ public class ProductImageController {
 	@GetMapping(value = "/delete/{id}")
 	public String deleteProductImage(@PathVariable(value = "id") Integer id, String keyword) {
 		productImageService.removeProductImage(id);
-		return "redirect:/productImage/index?keyword=" + keyword;
+		return "redirect:/admin/productImage/index?keyword=" + keyword;
 	}
 
 	@GetMapping(value = "/update/{id}")
@@ -67,12 +67,15 @@ public class ProductImageController {
 	public String save(ProductImage productImage, @RequestParam("file")MultipartFile file) throws IOException {
 		
 		String fileName = StringUtils.cleanPath(file.getOriginalFilename());
+		
+		if(fileName.length() > 3) {
 		productImage.setImage(fileName);
-		String uploadDir = "assets/images/productImage";
+		String uploadDir = "assets1/images/productImage";
 		FileUploadUtil.saveFile(uploadDir, fileName, file);
+		}
 		
 		productImageService.createOrUpdateProductImage(productImage);
-		return "redirect:/productImage/index";
+		return "redirect:/admin/productImage/index";
 	}
 
 }

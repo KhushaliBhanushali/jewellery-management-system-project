@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam; 
 import java.util.List; 
 @Controller 
-@RequestMapping(value = "blogCategory") 
+@RequestMapping(value = "admin/blogCategory") 
 public class BlogCategoryController { 
  private BlogCategoryService blogCategoryService; 
     public BlogCategoryController(BlogCategoryService blogCategoryService) { 
@@ -34,7 +34,7 @@ public class BlogCategoryController {
     @GetMapping(value = "/delete/{id}") 
     public String deleteBlogCategory(@PathVariable(value = "id") Integer id, String keyword) { 
         blogCategoryService.removeBlogCategory(id); 
-        return "redirect:/blogCategory/index?keyword=" + keyword; 
+        return "redirect:/admin/blogCategory/index?keyword=" + keyword; 
     }
  
     @GetMapping(value = "/update/{id}") 
@@ -47,7 +47,7 @@ public class BlogCategoryController {
     @PostMapping(value = "/save") 
     public String save(BlogCategory blogCategory) { 
         blogCategoryService.createOrUpdateBlogCategory(blogCategory); 
-        return "redirect:/blogCategory/index"; 
+        return "redirect:/admin/blogCategory/index"; 
     }
  
 } 

@@ -34,7 +34,7 @@
  
               <div class="card"> 
                 <div class="card-header">
-<a th:href="@{/wishlist/create}" class="btn btn-primary btn-sm">ADD NEW WISHLIST</a>  
+<a th:href="@{/admin/wishlist/create}" class="btn btn-primary btn-sm">ADD NEW WISHLIST</a>  
                 </div> 
                 <!-- /.card-header --> 
                 <div class="card-body"> 
@@ -54,8 +54,8 @@
 <td th:text= "${wishlist.product.name}"> </td>
 <td th:text= "${wishlist.user.firstName}"> </td>
 <td th:text= "${wishlist.entryDate}"> </td>
-<td> <a th:href="@{/wishlist/update/{id}(id=${wishlist.id})}" class="btn btn-success btn-sm">UPDATE</a> 
-						<a th:href="@{/wishlist/delete/{id}(id=${wishlist.id})}" class="btn btn-danger btn-sm">DELETE</a> 
+<td> <a th:href="@{/admin/wishlist/update/{id}(id=${wishlist.id})}" class="btn btn-success btn-sm">UPDATE</a> 
+						<a th:href="@{/admin/wishlist/delete/{id}(id=${wishlist.id})}" class="btn btn-danger btn-sm">DELETE</a> 
 					</td>  
                       </tr> 
                     </tbody> 

@@ -18,7 +18,7 @@ import com.springboot.jewellerysystem.service.ProductService;
 import com.springboot.jewellerysystem.service.UserService;
 
 @Controller
-@RequestMapping(value = "cart")
+@RequestMapping(value = "admin/cart")
 public class CartController {
 	private CartService cartService;
 	private UserService userService;
@@ -53,7 +53,7 @@ public class CartController {
 	@GetMapping(value = "/delete/{id}")
 	public String deleteCart(@PathVariable(value = "id") Integer id, String keyword) {
 		cartService.removeCart(id);
-		return "redirect:/cart/index?keyword=" + keyword;
+		return "redirect:/admin/cart/index?keyword=" + keyword;
 	}
 
 	@GetMapping(value = "/update/{id}")
@@ -72,7 +72,7 @@ public class CartController {
 	@PostMapping(value = "/save")
 	public String save(Cart cart) {
 		cartService.createOrUpdateCart(cart);
-		return "redirect:/cart/index";
+		return "redirect:/admin/cart/index";
 	}
 
 }

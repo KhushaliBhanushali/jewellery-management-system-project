@@ -17,7 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.util.List; 
 @Controller 
-@RequestMapping(value = "slider") 
+@RequestMapping(value = "admin/slider") 
 public class SliderController { 
  private SliderService sliderService; 
     public SliderController(SliderService sliderService) { 
@@ -40,7 +40,7 @@ public class SliderController {
     @GetMapping(value = "/delete/{id}") 
     public String deleteSlider(@PathVariable(value = "id") Integer id, String keyword) { 
         sliderService.removeSlider(id); 
-        return "redirect:/slider/index?keyword=" + keyword; 
+        return "redirect:/admin/slider/index?keyword=" + keyword; 
     }
  
     @GetMapping(value = "/update/{id}") 
@@ -54,12 +54,15 @@ public class SliderController {
     public String save(Slider slider, @RequestParam("file")MultipartFile file) throws IOException { 
     	
     	String fileName = StringUtils.cleanPath(file.getOriginalFilename());
+    	
+    	if(fileName.length() > 3) {
 		slider.setImage(fileName);
-		String uploadDir = "assets/images/slider";
+		String uploadDir = "assets1/images/slider";
 		FileUploadUtil.saveFile(uploadDir, fileName, file);
+    	}
     	
         sliderService.createOrUpdateSlider(slider); 
-        return "redirect:/slider/index"; 
+        return "redirect:/admin/slider/index"; 
     }
  
 } 

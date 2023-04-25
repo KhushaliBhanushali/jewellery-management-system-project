@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam; 
 import java.util.List; 
 @Controller 
-@RequestMapping(value = "currency") 
+@RequestMapping(value = "admin/currency") 
 public class CurrencyController { 
  private CurrencyService currencyService; 
     public CurrencyController(CurrencyService currencyService) { 
@@ -34,7 +34,7 @@ public class CurrencyController {
     @GetMapping(value = "/delete/{id}") 
     public String deleteCurrency(@PathVariable(value = "id") Integer id, String keyword) { 
         currencyService.removeCurrency(id); 
-        return "redirect:/currency/index?keyword=" + keyword; 
+        return "redirect:/admin/currency/index?keyword=" + keyword; 
     }
  
     @GetMapping(value = "/update/{id}") 
@@ -47,7 +47,7 @@ public class CurrencyController {
     @PostMapping(value = "/save") 
     public String save(Currency currency) { 
         currencyService.createOrUpdateCurrency(currency); 
-        return "redirect:/currency/index"; 
+        return "redirect:/admin/currency/index"; 
     }
  
 } 

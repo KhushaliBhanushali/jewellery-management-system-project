@@ -2,6 +2,7 @@ package com.springboot.jewellerysystem.controller.users;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.springboot.jewellerysystem.entity.Category;
 import com.springboot.jewellerysystem.entity.CompanyDetail;
 import com.springboot.jewellerysystem.entity.ContactUs;
+import com.springboot.jewellerysystem.entity.Faq;
 import com.springboot.jewellerysystem.entity.Link;
 import com.springboot.jewellerysystem.entity.MainCategory;
 import com.springboot.jewellerysystem.entity.OurService;
@@ -18,9 +20,11 @@ import com.springboot.jewellerysystem.entity.Product;
 import com.springboot.jewellerysystem.service.CategoryService;
 import com.springboot.jewellerysystem.service.CompanyDetailService;
 import com.springboot.jewellerysystem.service.ContactUsService;
+import com.springboot.jewellerysystem.service.FaqService;
 import com.springboot.jewellerysystem.service.LinkService;
 import com.springboot.jewellerysystem.service.OurServiceService;
 import com.springboot.jewellerysystem.service.ProductService;
+import com.springboot.jewellerysystem.util.Helper;
 
 @Controller
 public class HomeController {
@@ -37,15 +41,11 @@ public class HomeController {
 	
 	private LinkService linkService;
 	
-	
-	
-	
-	
-	
-	
+	private FaqService faqService;
+
 	public HomeController(CategoryService categoryService, ProductService productService,
 			OurServiceService ourServiceService, CompanyDetailService companyDetailService,
-			ContactUsService contactUsService, LinkService linkService) {
+			ContactUsService contactUsService, LinkService linkService, FaqService faqService) {
 		super();
 		this.categoryService = categoryService;
 		this.productService = productService;
@@ -53,46 +53,33 @@ public class HomeController {
 		this.companyDetailService = companyDetailService;
 		this.contactUsService = contactUsService;
 		this.linkService = linkService;
+		this.faqService = faqService;
 	}
 
 
 
 
 
-	@GetMapping("/")
+	
+	@GetMapping({"/","/home"})
 	public String showHome(Model m) {
 		
-		List<Category> listCategory = categoryService.getAllCategoryByMainCategory(new MainCategory(1));
+		Helper helper = new Helper();
+		
+		
+//		List<Category> tabCategory1=helper.getCategoryList(new int[]{1,2,3,4},categoryService);
+//		List<Category> tabCategory2=helper.getCategoryList(new int[]{5,11,12,14},categoryService);
+//		List<Category> tabCategory3=helper.getCategoryList(new int[]{7,10,6,8},categoryService);
+//		
+		
+	
+//	   m.addAttribute("tabCategory1",tabCategory1);
+//	   m.addAttribute("tabCategory2",tabCategory2);
+//	   m.addAttribute("tabCategory3",tabCategory3);
+//		
+//	
+	   List<Category> listCategory = categoryService.getAllCategoryByMainCategory(new MainCategory(1));
 		m.addAttribute("listCategory",listCategory);
-		List<Category> tabCategory=new ArrayList<>(); // = categoryService.getAllCategoryByMainCategory(new MainCategory(1)).subList(5, );
-		m.addAttribute("tabCategory",tabCategory);
-		int j=0;
-	for(int i=0;i<listCategory.size();i++) {
-		if(listCategory.get(i).getProducts().size() > 10 && j != 4)
-		{ tabCategory.add(listCategory.get(i)); j++;}
-	}
-		
-		
-		List<Product> listProduct1 = productService.getAllProductByCategory(tabCategory.get(0));
-		int L1 = (listProduct1.size()>10) ? 10 : listProduct1.size();
-		listProduct1 = listProduct1.subList(1, L1);
-		m.addAttribute("listProduct1",listProduct1);
-		
-		List<Product> listProduct2 = productService.getAllProductByCategory(tabCategory.get(1));
-		int L2 = (listProduct2.size()>10) ? 10 : listProduct2.size();
-		listProduct2 = listProduct2.subList(1, L2);
-		
-		m.addAttribute("listProduct2",listProduct2);
-		
-		List<Product> listProduct3 = productService.getAllProductByCategory(tabCategory.get(2));
-		int L3 = (listProduct3.size()>10) ? 10 : listProduct3.size();
-		listProduct3 = listProduct3.subList(1, L3);
-		m.addAttribute("listProduct3",listProduct3);
-		
-		List<Product> listProduct4 = productService.getAllProductByCategory(tabCategory.get(3));
-		int L4 = (listProduct4.size()>10) ? 10 : listProduct4.size();
-		listProduct4 = listProduct4.subList(1, L4);
-		m.addAttribute("listProduct4",listProduct4);
 		
 		List<OurService> listOurService = ourServiceService.getAllOurService();
 		m.addAttribute("listOurService",listOurService);
@@ -111,7 +98,11 @@ public class HomeController {
 	}
 	
 	@GetMapping("/about")
-	public String showAbout() {
+	public String showAbout(Model m) {
+		CompanyDetail companyDetail = companyDetailService.getAllCompanyDetail().get(0);
+		m.addAttribute("companyDetail", companyDetail);
+	
+		
 		return "user/about-us";
 	}
 	
@@ -131,7 +122,18 @@ public class HomeController {
 		contactUsService.createOrUpdateContactUs(contactUs);
 		
 		
-		return "redirect:/user/index";
+		return "redirect:/home";
+	}
+	
+	@GetMapping("/faq")
+	public String showFaq(Model m) {
+		
+		List<Faq> listFaq = faqService.getAllFaq();
+		m.addAttribute("listFaq", listFaq);
+		CompanyDetail companyDetail = companyDetailService.getAllCompanyDetail().get(0);
+		m.addAttribute("companyDetail", companyDetail);
+		
+		return "user/faq";
 	}
 	
 	@GetMapping("/cart")

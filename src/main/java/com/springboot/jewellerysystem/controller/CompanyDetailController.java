@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.util.List;
 
 @Controller
-@RequestMapping(value = "companyDetail")
+@RequestMapping(value = "admin/companyDetail")
 public class CompanyDetailController {
 	private CompanyDetailService companyDetailService;
 
@@ -44,7 +44,7 @@ public class CompanyDetailController {
 	@GetMapping(value = "/delete/{id}")
 	public String deleteCompanyDetail(@PathVariable(value = "id") Integer id, String keyword) {
 		companyDetailService.removeCompanyDetail(id);
-		return "redirect:/companyDetail/index?keyword=" + keyword;
+		return "redirect:/admin/companyDetail/index?keyword=" + keyword;
 	}
 
 	@GetMapping(value = "/update/{id}")
@@ -60,12 +60,14 @@ public class CompanyDetailController {
 	public String save(CompanyDetail companyDetail, @RequestParam("file") MultipartFile file) throws IOException {
 
 		String fileName = StringUtils.cleanPath(file.getOriginalFilename());
+		if (fileName.length() > 3) {
 		companyDetail.setLogo(fileName);
 		String uploadDir = "assets1/images/companyDetail";
 		FileUploadUtil.saveFile(uploadDir, fileName, file);
-
+		}
+		
 		companyDetailService.createOrUpdateCompanyDetail(companyDetail);
-		return "redirect:/companyDetail/index";
+		return "redirect:/admin/companyDetail/index";
 	}
 
 }

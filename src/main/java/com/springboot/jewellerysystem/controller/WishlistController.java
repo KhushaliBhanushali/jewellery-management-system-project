@@ -18,7 +18,7 @@ import com.springboot.jewellerysystem.service.UserService;
 import com.springboot.jewellerysystem.service.WishlistService;
 
 @Controller
-@RequestMapping(value = "wishlist")
+@RequestMapping(value = "admin/wishlist")
 public class WishlistController {
 	private WishlistService wishlistService;
 	private ProductService productService;
@@ -53,7 +53,7 @@ public class WishlistController {
 	@GetMapping(value = "/delete/{id}")
 	public String deleteWishlist(@PathVariable(value = "id") Integer id, String keyword) {
 		wishlistService.removeWishlist(id);
-		return "redirect:/wishlist/index?keyword=" + keyword;
+		return "redirect:/admin/wishlist/index?keyword=" + keyword;
 	}
 
 	@GetMapping(value = "/update/{id}")
@@ -72,7 +72,7 @@ public class WishlistController {
 	@PostMapping(value = "/save")
 	public String save(Wishlist wishlist) {
 		wishlistService.createOrUpdateWishlist(wishlist);
-		return "redirect:/wishlist/index";
+		return "redirect:/admin/wishlist/index";
 	}
 
 }

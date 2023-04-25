@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam; 
 import java.util.List; 
 @Controller 
-@RequestMapping(value = "rateMaster") 
+@RequestMapping(value = "admin/rateMaster") 
 public class RateMasterController { 
  private RateMasterService rateMasterService; 
     public RateMasterController(RateMasterService rateMasterService) { 
@@ -34,7 +34,7 @@ public class RateMasterController {
     @GetMapping(value = "/delete/{id}") 
     public String deleteRateMaster(@PathVariable(value = "id") Integer id, String keyword) { 
         rateMasterService.removeRateMaster(id); 
-        return "redirect:/rateMaster/index?keyword=" + keyword; 
+        return "redirect:/admin/rateMaster/index?keyword=" + keyword; 
     }
  
     @GetMapping(value = "/update/{id}") 
@@ -47,7 +47,7 @@ public class RateMasterController {
     @PostMapping(value = "/save") 
     public String save(RateMaster rateMaster) { 
         rateMasterService.createOrUpdateRateMaster(rateMaster); 
-        return "redirect:/rateMaster/index"; 
+        return "redirect:/admin/rateMaster/index"; 
     }
  
 } 

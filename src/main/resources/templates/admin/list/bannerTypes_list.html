@@ -34,7 +34,7 @@
  
               <div class="card"> 
                 <div class="card-header">
-<a th:href="@{/bannerType/create}" class="btn btn-primary btn-sm">ADD NEW BANNERTYPE</a>  
+<a th:href="@{/admin/bannerType/create}" class="btn btn-primary btn-sm">ADD NEW BANNERTYPE</a>  
                 </div> 
                 <!-- /.card-header --> 
                 <div class="card-body"> 
@@ -54,8 +54,8 @@
 <td th:text= "${bannerType.name}"> </td>
 <td th:text= "${bannerType.height}"> </td>
 <td th:text= "${bannerType.width}"> </td>
-<td> <a th:href="@{/bannerType/update/{id}(id=${bannerType.id})}" class="btn btn-success btn-sm">UPDATE</a> 
-						<a th:href="@{/bannerType/delete/{id}(id=${bannerType.id})}" class="btn btn-danger btn-sm">DELETE</a> 
+<td> <a th:href="@{/admin/bannerType/update/{id}(id=${bannerType.id})}" class="btn btn-success btn-sm">UPDATE</a> 
+						<a th:href="@{/admin/bannerType/delete/{id}(id=${bannerType.id})}" class="btn btn-danger btn-sm">DELETE</a> 
 					</td>  
                       </tr> 
                     </tbody> 

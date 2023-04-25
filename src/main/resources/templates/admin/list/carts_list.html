@@ -34,7 +34,7 @@
  
               <div class="card"> 
                 <div class="card-header">
-<a th:href="@{/cart/create}" class="btn btn-primary btn-sm">ADD NEW CART</a>  
+<a th:href="@{/admin/cart/create}" class="btn btn-primary btn-sm">ADD NEW CART</a>  
                 </div> 
                 <!-- /.card-header --> 
                 <div class="card-body"> 
@@ -54,7 +54,7 @@
 <td th:text= "${cart.user.firstName}"> </td>
 <td th:text= "${cart.product.name}"> </td>
 <td th:text= "${cart.qty}"> </td>
-<td> <a th:href="@{/cart/update/{id}(id=${cart.id})}" class="btn btn-success btn-sm">UPDATE</a> 
+<td> <a th:href="@{/admin/cart/update/{id}(id=${cart.id})}" class="btn btn-success btn-sm">UPDATE</a> 
 						<a th:href="@{/cart/delete/{id}(id=${cart.id})}" class="btn btn-danger btn-sm">DELETE</a> 
 					</td>  
                       </tr> 

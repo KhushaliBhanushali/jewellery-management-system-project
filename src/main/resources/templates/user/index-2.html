@@ -707,50 +707,19 @@
             <div class="container">
                 <div class="shipping-nav">
                     <div class="row">
-                        <div class="col-lg-3 col-md-6">
+                        <div class="col-lg-3 col-md-6" th:each="ourService:${listOurService}">
                             <div class="shipping-item">
                                 <div class="shipping-icon">
-                                    <img th:src="@{assets/images/shipping-icon/1.png" alt="Jewellery's Shipping Icon">
+                                    <img th:src="@{${ourService.imagePath}}" alt="Jewellery's Shipping Icon">
+
                                 </div>
                                 <div class="shipping-content">
-                                    <h6>Free Uk Standard Delivery</h6>
-                                    <p>Designated day delivery</p>
+                                    <h6><a class="ourService-name" th:text="${ourService.name}"></a></h6>
+                                    <p><a class="ourService-description" th:text="${ourService.description}"></a></p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-6">
-                            <div class="shipping-item">
-                                <div class="shipping-icon">
-                                    <img th:src="@{assets/images/shipping-icon/2.png" alt="Jewellery's Shipping Icon">
-                                </div>
-                                <div class="shipping-content">
-                                    <h6>Freshyly Prepared Ingredients</h6>
-                                    <p>Made for your delivery date</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <div class="shipping-item">
-                                <div class="shipping-icon">
-                                    <img th:src="@{assets/images/shipping-icon/3.png" alt="Jewellery's Shipping Icon">
-                                </div>
-                                <div class="shipping-content">
-                                    <h6>98% Of Anta Clients</h6>
-                                    <p>Reach their personal goals set</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <div class="shipping-item">
-                                <div class="shipping-icon">
-                                    <img th:src="@{assets/images/shipping-icon/4.png" alt="Jewellery's Shipping Icon">
-                                </div>
-                                <div class="shipping-content">
-                                    <h6>Winner Of 15 Awards</h6>
-                                    <p>Healthy food and drink 2022</p>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>
@@ -773,11 +742,9 @@
                                 <div class="single_product">
                                     <div class="product-img">
                                         <a href="single-product.html">
-                                            <img class="primary-img"
-                                                th:src="@{assets/images/product/medium-size/1-1.jpg}"
+                                            <img class="primary-img" th:src="@{${product.imagePath}}"
                                                 alt="Jewellery's Product Image">
-                                            <img class="secondary-img"
-                                                th:src="@{assets/images/product/medium-size/1-2.jpg}"
+                                            <img class="secondary-img" th:src="@{${product.imagePath}}"
                                                 alt="Jewellery's Product Image">
                                         </a>
                                         <span class="sticker">New</span>

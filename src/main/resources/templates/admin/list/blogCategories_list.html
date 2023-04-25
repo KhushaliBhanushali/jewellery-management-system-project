@@ -37,7 +37,7 @@
 
               <div class="card">
                 <div class="card-header">
-                  <a th:href="@{/blogCategory/create}" class="btn btn-primary btn-sm">ADD NEW BLOGCATEGORY</a>
+                  <a th:href="@{/admin/blogCategory/create}" class="btn btn-primary btn-sm">ADD NEW BLOGCATEGORY</a>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -55,9 +55,9 @@
                         <td th:text="${blogCategory.id}"> </td>
                         <td th:text="${blogCategory.name}"> </td>
                         <td th:text="${blogCategory.status==1} ? 'ACTIVE' : 'NOT ACTIVE'"> </td>
-                        <td> <a th:href="@{/blogCategory/update/{id}(id=${blogCategory.id})}"
+                        <td> <a th:href="@{/admin/blogCategory/update/{id}(id=${blogCategory.id})}"
                             class="btn btn-success btn-sm">UPDATE</a>
-                          <a th:href="@{/blogCategory/delete/{id}(id=${blogCategory.id})}"
+                          <a th:href="@{/admin/blogCategory/delete/{id}(id=${blogCategory.id})}"
                             class="btn btn-danger btn-sm">DELETE</a>
                         </td>
                       </tr>

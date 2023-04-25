@@ -39,7 +39,7 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form id="quickForm" enctype="multipart/form-data" method="post" th:action="@{/pages/save}"
+                <form id="quickForm" enctype="multipart/form-data" method="post" th:action="@{/admin/pages/save}"
                   th:object="${pages}">
                   <div class="card-body">
                     <div class="form-group">
@@ -63,9 +63,13 @@
                         placeholder="Enter Page Description " th:value="${pages.getPageDescription()}">
                     </div>
                     <div class="form-group">
-                      <label for="pageBanner">Page Banner</label>
-                      <input type="file" accept="image/png, image/jpeg" name="pageBanner" class="form-control" id="pageBanner"
-                        placeholder="Enter Page Banner " th:value="${pages.getPageBanner()}">
+                      <label for="file">Page Banner</label>
+                      <input type="file" accept="image/png, image/jpeg" name="file" class="form-control" id="file"
+                        placeholder="Enter Page Banner " >
+                        
+                        <input type="hidden" th:value="${pages.getPageBanner()}">
+                        <img th:src="${pages.imagePath}" style="width:70px">
+                        
                     </div>
                     <div class="form-group">
                       <label for="status">Status</label>
@@ -80,7 +84,7 @@
                   <!-- /.card-body -->
                   <div class="card-footer">
                     <button type="submit" class="btn btn-primary btn-sm">UPDATE</button>
-                    <a th:href="@{/pages/index}"><button type="button" class="btn btn-dark btn-sm">BACK</button></a>
+                    <a th:href="@{/admin/pages/index}"><button type="button" class="btn btn-dark btn-sm">BACK</button></a>
                   </div>
                 </form>
               </div>

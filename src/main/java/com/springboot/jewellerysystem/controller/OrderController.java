@@ -16,7 +16,7 @@ import com.springboot.jewellerysystem.service.OrderService;
 import com.springboot.jewellerysystem.service.UserService;
 
 @Controller
-@RequestMapping(value = "order")
+@RequestMapping(value = "admin/order")
 public class OrderController {
 	private OrderService orderService;
 	private UserService userService;
@@ -46,7 +46,7 @@ public class OrderController {
 	@GetMapping(value = "/delete/{id}")
 	public String deleteOrder(@PathVariable(value = "id") Integer id, String keyword) {
 		orderService.removeOrder(id);
-		return "redirect:/order/index?keyword=" + keyword;
+		return "redirect:/admin/order/index?keyword=" + keyword;
 	}
 
 	@GetMapping(value = "/update/{id}")
@@ -62,7 +62,7 @@ public class OrderController {
 	@PostMapping(value = "/save")
 	public String save(Order order) {
 		orderService.createOrUpdateOrder(order);
-		return "redirect:/order/index";
+		return "redirect:/admin/order/index";
 	}
 
 }

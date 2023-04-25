@@ -37,7 +37,7 @@
 
               <div class="card">
                 <div class="card-header">
-                  <a th:href="@{/mainCategory/create}" class="btn btn-primary btn-sm">ADD NEW MAINCATEGORY</a>
+                  <a th:href="@{/admin/mainCategory/create}" class="btn btn-primary btn-sm">ADD NEW MAINCATEGORY</a>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -59,9 +59,9 @@
                           <img th:src=@{${mainCategory.imagePath}} style="width:60px" />
                         </td>
                         <td th:text="${mainCategory.status==1} ? 'ACTIVE' : 'NOT ACTIVE'"> </td>
-                        <td> <a th:href="@{/mainCategory/update/{id}(id=${mainCategory.id})}"
+                        <td> <a th:href="@{/admin/mainCategory/update/{id}(id=${mainCategory.id})}"
                             class="btn btn-success btn-sm">UPDATE</a>
-                          <a th:href="@{/mainCategory/delete/{id}(id=${mainCategory.id})}"
+                          <a th:href="@{/admin/mainCategory/delete/{id}(id=${mainCategory.id})}"
                             class="btn btn-danger btn-sm">DELETE</a>
                         </td>
                       </tr>

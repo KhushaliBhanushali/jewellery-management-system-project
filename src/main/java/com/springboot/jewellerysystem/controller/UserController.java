@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam; 
 import java.util.List; 
 @Controller 
-@RequestMapping(value = "user") 
+@RequestMapping(value = "admin/user") 
 public class UserController { 
  private UserService userService; 
     public UserController(UserService userService) { 
@@ -34,7 +34,7 @@ public class UserController {
     @GetMapping(value = "/delete/{id}") 
     public String deleteUser(@PathVariable(value = "id") Integer id, String keyword) { 
         userService.removeUser(id); 
-        return "redirect:/user/index?keyword=" + keyword; 
+        return "redirect:/admin/user/index?keyword=" + keyword; 
     }
  
     @GetMapping(value = "/update/{id}") 
@@ -47,7 +47,7 @@ public class UserController {
     @PostMapping(value = "/save") 
     public String save(User user) { 
         userService.createOrUpdateUser(user); 
-        return "redirect:/user/index"; 
+        return "redirect:/admin/user/index"; 
     }
  
 } 

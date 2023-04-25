@@ -17,7 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.util.List; 
 @Controller 
-@RequestMapping(value = "pages") 
+@RequestMapping(value = "admin/pages") 
 public class PagesController { 
  private PagesService pagesService; 
     public PagesController(PagesService pagesService) { 
@@ -40,7 +40,7 @@ public class PagesController {
     @GetMapping(value = "/delete/{id}") 
     public String deletePages(@PathVariable(value = "id") Integer id, String keyword) { 
         pagesService.removePages(id); 
-        return "redirect:/pages/index?keyword=" + keyword; 
+        return "redirect:/admin/pages/index?keyword=" + keyword; 
     }
  
     @GetMapping(value = "/update/{id}") 
@@ -54,12 +54,15 @@ public class PagesController {
     public String save(Pages pages, @RequestParam("file")MultipartFile file) throws IOException {
     	
     	String fileName = StringUtils.cleanPath(file.getOriginalFilename());
+    	
+    	if(fileName.length() > 3) {
 		pages.setPageBanner(fileName);
-		String uploadDir = "assets/images/pages";
+		String uploadDir = "assets1/images/pages";
 		FileUploadUtil.saveFile(uploadDir, fileName, file);
+    	}
     	
         pagesService.createOrUpdatePages(pages); 
-        return "redirect:/pages/index"; 
+        return "redirect:/admin/pages/index"; 
     }
  
 } 

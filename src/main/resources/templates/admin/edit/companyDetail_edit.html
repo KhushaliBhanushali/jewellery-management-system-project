@@ -39,7 +39,7 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form id="quickForm" enctype="multipart/form-data" method="post" th:action="@{/companyDetail/save}"
+                <form id="quickForm" enctype="multipart/form-data" method="post" th:action="@{/admin/companyDetail/save}"
                   th:object="${companyDetail}">
                   <div class="card-body">
                     <div class="form-group">
@@ -55,13 +55,14 @@
                       <input type="text" name="name" class="form-control" id="name" placeholder="Enter Name "
                         th:value="${companyDetail.getName()}">
                     </div>
-                    <div class="form-group">
-                      <img th:src="@{${companyDetail.getImagePath()}}" style="width:150px" />
-                    </div>
+                    
                     <div class="form-group">
                       <label for="logo">Logo</label>
                       <input type="file" accept="image/png, image/jpeg" name="file" class="form-control" id="file"
                         placeholder="Enter Logo " th:value="${companyDetail.getLogo()}">
+                        
+                        <input type="hidden" th:value="${companyDetail.getLogo()}">
+                        <img th:src="${companyDetail.imagePath}" style="width:70px">
                     </div>
 
 

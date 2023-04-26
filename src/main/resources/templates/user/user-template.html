@@ -159,8 +159,8 @@
                                             <ul class="hm-dropdown">
 
                                                 <li th:each="category:${listCategory}">
-                                                    <a th:href="@{/shop}"><span th:text="${category.getName()}"
-                                                            th:remove="tag"></span></a>
+                                                    <a th:href="@{/shop(cat_id=${category.id})}"><span
+                                                            th:text="${category.getName()}" th:remove="tag"></span></a>
                                                 </li>
 
 
@@ -705,8 +705,8 @@
                                         <div class="footer-widgets">
                                             <ul>
                                                 <li><a th:href="@{/faq}">FAQ</a></li>
-                                                <li><a th:href="@{/contact}">Blog</a></li>
-                                                <li><a th:href="@{/contact}">Shop Map</a></li>
+                                                <li><a th:href="@{/blog}">Blog</a></li>
+                                                <li><a th:href="@{/shop?cat_id=1}">Shop</a></li>
                                                 <li><a th:href="@{/contact}">Contact us</a></li>
                                             </ul>
                                         </div>
